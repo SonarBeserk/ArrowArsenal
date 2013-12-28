@@ -4,3 +4,14 @@ description: ${project.description}
 author: SonarBeserk
 
 main: me.sonarbeserk.arrowarsenal.ArrowArsenal
+
+permissions:
+  arrowarsenal.commands.reload:
+    description: allows use of the reload subcommand
+    default: op
+
+commands:
+  arrowarsenal:
+    description: master command system for the plugin
+    usage: "ArrowArsenal Usage: /arrowarsenal help"
+    aliases: [aa]

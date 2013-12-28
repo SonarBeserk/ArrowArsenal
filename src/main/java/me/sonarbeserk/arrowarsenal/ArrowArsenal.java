@@ -1,5 +1,6 @@
 package me.sonarbeserk.arrowarsenal;
 
+import me.sonarbeserk.arrowarsenal.commands.MainCmd;
 import me.sonarbeserk.arrowarsenal.utils.Utils;
 import me.sonarbeserk.arrowarsenal.yamls.Data;
 import me.sonarbeserk.arrowarsenal.yamls.Locale;
@@ -26,6 +27,8 @@ public class ArrowArsenal extends JavaPlugin {
         if(!getServer().getPluginManager().isPluginEnabled(this)) {return;}
 
         utils = new Utils(this);
+
+        getCommand(getDescription().getName().toLowerCase()).setExecutor(new MainCmd(this));
     }
 
 

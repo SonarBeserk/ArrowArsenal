@@ -5,3 +5,6 @@ no-permission: "&4You do not have permission to do that!"
 
 # Sent when the config is reloaded
 reloaded: "&7The configuration has been reloaded!"
+
+# Usage for the arrowarsenal master command
+usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files"
