@@ -1,5 +1,18 @@
 *.class
 
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Maven
+target/
+
 # Package Files #
 *.jar
 *.war
