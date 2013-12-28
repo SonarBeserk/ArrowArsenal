@@ -1,0 +1,7 @@
+# English Locale
+
+# Sent when a sender lacks permission to do something
+no-permission: "&4You do not have permission to do that!"
+
+# Sent when the config is reloaded
+reloaded: "&7The configuration has been reloaded!"
