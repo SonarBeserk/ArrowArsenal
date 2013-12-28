@@ -18,14 +18,23 @@ public class Utils {
     /**
      * Sends a commandsender a message
      * @param receiver the commandsender to send a message to
+     * @param shouldPrefix should the plugin prefix be added to the message?
      * @param colored if the message should be colored
      * @param msg the message to send
      */
-    public void sendMessage(CommandSender receiver, boolean colored, String msg) {
+    public void sendMessage(CommandSender receiver, boolean shouldPrefix, boolean colored, String msg) {
 
         if(receiver == null || msg == null) {return;}
 
         if(receiver instanceof ConsoleCommandSender) {
+
+            if(shouldPrefix) {
+
+                String prefix = plugin.getConfig().getString("settings.prefix");
+
+                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg)));
+                return;
+            }
 
             receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg)));
             return;
@@ -33,9 +42,25 @@ public class Utils {
 
         if(colored) {
 
+            if(shouldPrefix) {
+
+                String prefix = plugin.getConfig().getString("settings.prefix");
+
+                receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg));
+                return;
+            }
+
             receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             return;
-        } else if(!colored) {
+        } else {
+
+            if(shouldPrefix) {
+
+                String prefix = plugin.getConfig().getString("settings.prefix");
+
+                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg)));
+                return;
+            }
 
             receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg)));
             return;
@@ -45,18 +70,35 @@ public class Utils {
     /**
      * Sends a player a message
      * @param receiver the plater to send a message to
+     * @param shouldPrefix should the plugin prefix be added to the message?
      * @param colored if the message should be colored
      * @param msg the message to send
      */
-    public void sendMessage(Player receiver, boolean colored, String msg) {
+    public void sendMessage(Player receiver, boolean shouldPrefix, boolean colored, String msg) {
 
         if(receiver == null || msg == null) {return;}
 
         if(colored) {
 
+            if(shouldPrefix) {
+
+                String prefix = plugin.getConfig().getString("settings.prefix");
+
+                receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg));
+                return;
+            }
+
             receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             return;
-        } else if(!colored) {
+        } else {
+
+            if(shouldPrefix) {
+
+                String prefix = plugin.getConfig().getString("settings.prefix");
+
+                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg)));
+                return;
+            }
 
             receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg)));
             return;
@@ -65,19 +107,12 @@ public class Utils {
 
     /**
      * Logs a debug message to the JavaPlugin's logger
-     * @param eCheck checks for debug mode being enabled
      * @param message the message to log
      */
-    public void debug(boolean eCheck, String message) {
+    public void debug(String message) {
 
-        if(eCheck) {
+        if(!plugin.getConfig().getBoolean("settings.debug")) {return;}
 
-            if(!plugin.getConfig().getBoolean("settings.debug")) {return;}
-
-            plugin.getLogger().info(message);
-        } else {
-
-            plugin.getLogger().info(message);
-        }
+        plugin.getLogger().info(message);
     }
 }
