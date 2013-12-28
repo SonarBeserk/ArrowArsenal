@@ -26,7 +26,7 @@ public class MainCmd implements CommandExecutor {
                 return true;
             } else {
 
-                plugin.getUtils().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getUtils().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             }
         }
