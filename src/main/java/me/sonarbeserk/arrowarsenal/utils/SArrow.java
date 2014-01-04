@@ -1,5 +1,6 @@
 package me.sonarbeserk.arrowarsenal.utils;
 
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 
@@ -42,4 +43,10 @@ public abstract class SArrow {
      * @param event the event where the arrow hit
      */
     public abstract void hit(ProjectileHitEvent event);
+
+    /**
+     * Called when an arrow hits an entity
+     * @param event the event where the arrow hit an entity
+     */
+    public abstract void hitEntity(EntityDamageByEntityEvent event);
 }
