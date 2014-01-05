@@ -1,4 +1,4 @@
-package me.sonarbeserk.arrowarsenal.utils;
+package me.sonarbeserk.arrowarsenal.arrows;
 
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
