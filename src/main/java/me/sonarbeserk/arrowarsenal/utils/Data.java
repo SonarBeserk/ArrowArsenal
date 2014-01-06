@@ -1,4 +1,4 @@
-package me.sonarbeserk.arrowarsenal.yamls;
+package me.sonarbeserk.arrowarsenal.utils;
 
 import java.io.File;
 import java.io.IOException;

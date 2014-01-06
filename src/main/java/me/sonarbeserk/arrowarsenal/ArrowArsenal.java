@@ -2,8 +2,8 @@ package me.sonarbeserk.arrowarsenal;
 
 import me.sonarbeserk.arrowarsenal.commands.MainCmd;
 import me.sonarbeserk.arrowarsenal.utils.Messaging;
-import me.sonarbeserk.arrowarsenal.yamls.Data;
-import me.sonarbeserk.arrowarsenal.yamls.Locale;
+import me.sonarbeserk.arrowarsenal.utils.Data;
+import me.sonarbeserk.arrowarsenal.utils.Locale;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ArrowArsenal extends JavaPlugin {

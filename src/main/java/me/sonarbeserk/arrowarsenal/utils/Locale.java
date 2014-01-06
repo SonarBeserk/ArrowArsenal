@@ -1,4 +1,4 @@
-package me.sonarbeserk.arrowarsenal.yamls;
+package me.sonarbeserk.arrowarsenal.utils;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
