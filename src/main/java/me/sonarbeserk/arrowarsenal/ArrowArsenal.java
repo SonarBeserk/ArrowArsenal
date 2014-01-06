@@ -54,9 +54,9 @@ public class ArrowArsenal extends JavaPlugin {
      * Returns the plugin utils
      * @return the plugin utils
      */
-    public Messaging getUtils() {
+    public Messaging getMessaging() {
 
-        return utils;
+    return utils;
     }
 
     public void onDisable() {

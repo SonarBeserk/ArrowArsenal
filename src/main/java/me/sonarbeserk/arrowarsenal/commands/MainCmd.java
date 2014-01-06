@@ -22,11 +22,11 @@ public class MainCmd implements CommandExecutor {
 
             if(sender instanceof Player) {
 
-                plugin.getUtils().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             } else {
 
-                plugin.getUtils().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             }
         }
@@ -37,11 +37,11 @@ public class MainCmd implements CommandExecutor {
 
                 if(sender instanceof Player) {
 
-                    plugin.getUtils().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                     return true;
                 } else {
 
-                    plugin.getUtils().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                    plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                     return true;
                 }
             }
@@ -51,11 +51,11 @@ public class MainCmd implements CommandExecutor {
                 if(!sender.hasPermission("neigh.commands.reload")) {
 
                     if(sender instanceof Player) {
-                        plugin.getUtils().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
                         return true;
                     } else {
 
-                        plugin.getUtils().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
                         return true;
                     }
                 }
@@ -65,21 +65,21 @@ public class MainCmd implements CommandExecutor {
 
                 if(sender instanceof Player) {
 
-                    plugin.getUtils().sendMessage(sender, true, true, plugin.getLocale().getMessage("reloaded"));
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("reloaded"));
                     return true;
                 } else {
 
-                    plugin.getUtils().sendMessage(sender, false, true, plugin.getLocale().getMessage("reloaded"));
+                    plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("reloaded"));
                     return true;
                 }
             }
 
             if(sender instanceof Player) {
-                plugin.getUtils().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             } else {
 
-                plugin.getUtils().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             }
         }
