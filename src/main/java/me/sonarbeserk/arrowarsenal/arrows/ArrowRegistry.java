@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ArrowRegistry {
 
-    private ArrowRegistry instance = null;
+    private static ArrowRegistry instance = null;
 
     private ArrowArsenal plugin = null;
 
@@ -27,9 +27,17 @@ public class ArrowRegistry {
      * Returns the current instance of the ArrowRegistry
      * @return the current instance of the ArrowRegistry
      */
-    public ArrowRegistry getInstance() {
+    public static ArrowRegistry getInstance() {
 
         return instance;
+    }
+
+    /**
+     * Clears the instance of the registry, only used for cleanup purposes
+     */
+    public static void clearInstance() {
+
+        instance = null;
     }
 
     /**
