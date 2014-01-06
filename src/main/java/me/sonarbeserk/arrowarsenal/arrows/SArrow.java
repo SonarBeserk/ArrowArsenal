@@ -49,4 +49,14 @@ public abstract class SArrow {
      * @param event the event where the arrow hit an entity
      */
     public abstract void hitEntity(EntityDamageByEntityEvent event);
+
+    /**
+     * Called when the arrow is enabled
+     */
+    public abstract void onEnable();
+
+    /**
+     * Called when the arrow is disabled
+     */
+    public abstract void onDisable();
 }
