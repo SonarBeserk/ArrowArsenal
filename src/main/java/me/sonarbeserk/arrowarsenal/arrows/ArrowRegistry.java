@@ -153,6 +153,12 @@ public class ArrowRegistry {
 
         if(disabledArrowNames == null || disabledArrowNames.size() == 0) {return true;}
 
-        return disabledArrowNames.contains(internalName);
+        for(String name: disabledArrowNames) {
+
+            if(name.equalsIgnoreCase(internalName)) {
+
+                return false;
+            }
+        }
     }
 }
