@@ -12,7 +12,7 @@ public abstract class SArrow {
      * Returns the user friendly name of the arrow
      * @return the user friendly name of the arrow
      */
-    public abstract String getName();
+    public abstract String getDisplayName();
 
     /**
      * Returns the internal name of the arrow, the name to use when saving data
