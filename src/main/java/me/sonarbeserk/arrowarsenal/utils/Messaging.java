@@ -106,6 +106,46 @@ public class Messaging {
     }
 
     /**
+     * Sends a named player a message
+     * @param playerName the plater to send a message to
+     * @param shouldPrefix should the plugin prefix be added to the message?
+     * @param colored if the message should be colored
+     * @param msg the message to send
+     */
+    public void sendMessage(String playerName, boolean shouldPrefix, boolean colored, String msg) {
+
+        Player receiver = plugin.getServer().getPlayer(playerName);
+
+        if(receiver == null || msg == null) {return;}
+
+        if(colored) {
+
+            if(shouldPrefix) {
+
+                String prefix = plugin.getConfig().getString("settings.prefix");
+
+                receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg));
+                return;
+            }
+
+            receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            return;
+        } else {
+
+            if(shouldPrefix) {
+
+                String prefix = plugin.getConfig().getString("settings.prefix");
+
+                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg)));
+                return;
+            }
+
+            receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg)));
+            return;
+        }
+    }
+
+    /**
      * Logs a debug message to the JavaPlugin's logger
      * @param message the message to log
      */
