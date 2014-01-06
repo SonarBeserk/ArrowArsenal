@@ -8,3 +8,15 @@ reloaded: "&7The configuration has been reloaded!"
 
 # Usage for the arrowarsenal master command
 usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files"
+
+# Message to send when an arrow without a display name is trying to be registered | {name} - the name of the class
+severe-no-displayname: "{class} tried to register arrow with no display name"
+
+# Message to send when an arrow without a internal name is trying to be registered | {name} - the name of the class
+severe-no-internalname: "{class} tried to register arrow with no internal name"
+
+# Debug message to send when an arrow is added to the arrow registry | {displayname} the display name of the arrow | {internalname} - the internal name of the arrow | {authors} - the authors of the plugin | {description} - the description of the arrow
+debug-arrowregistry-add: "Arrow with the display name: {displayname} internal name: {internalname} by {authors} with the description {description} was added to the arrow registry"
+
+# Debug message to send when an arrow is removed from the arrow registry | {internalname} - the internal name of the arrow
+debug-arrowregistry-unregistered: "Arrow with the internal name: {internalname} has been removed from the arrow registry"
