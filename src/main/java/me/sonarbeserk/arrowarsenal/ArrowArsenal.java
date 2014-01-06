@@ -1,7 +1,7 @@
 package me.sonarbeserk.arrowarsenal;
 
 import me.sonarbeserk.arrowarsenal.commands.MainCmd;
-import me.sonarbeserk.arrowarsenal.utils.Utils;
+import me.sonarbeserk.arrowarsenal.utils.Messaging;
 import me.sonarbeserk.arrowarsenal.yamls.Data;
 import me.sonarbeserk.arrowarsenal.yamls.Locale;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -12,7 +12,7 @@ public class ArrowArsenal extends JavaPlugin {
 
     private Data data = null;
 
-    private Utils utils = null;
+    private Messaging utils = null;
 
     public void onEnable() {
 
@@ -26,7 +26,7 @@ public class ArrowArsenal extends JavaPlugin {
 
         if(!getServer().getPluginManager().isPluginEnabled(this)) {return;}
 
-        utils = new Utils(this);
+        utils = new Messaging(this);
 
         getCommand(getDescription().getName().toLowerCase()).setExecutor(new MainCmd(this));
     }
@@ -54,7 +54,7 @@ public class ArrowArsenal extends JavaPlugin {
      * Returns the plugin utils
      * @return the plugin utils
      */
-    public Utils getUtils() {
+    public Messaging getUtils() {
 
         return utils;
     }

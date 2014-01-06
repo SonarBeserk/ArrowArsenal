@@ -6,11 +6,11 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Utils {
+public class Messaging {
 
     private JavaPlugin plugin = null;
 
-    public Utils(JavaPlugin plugin) {
+    public Messaging(JavaPlugin plugin) {
 
         this.plugin = plugin;
     }
