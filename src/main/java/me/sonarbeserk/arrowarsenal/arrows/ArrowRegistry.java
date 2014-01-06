@@ -1,7 +1,6 @@
 package me.sonarbeserk.arrowarsenal.arrows;
 
 import me.sonarbeserk.arrowarsenal.ArrowArsenal;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +11,8 @@ public class ArrowRegistry {
     private ArrowArsenal plugin = null;
 
     private List<SArrow> arrows = null;
+
+    private List<String> disabledArrowNames = null;
 
     public ArrowRegistry(ArrowArsenal plugin) {
 
@@ -50,6 +51,8 @@ public class ArrowRegistry {
      */
     public void addArrow(SArrow arrow) {
 
+        if(arrows == null) {return;}
+
         if(arrow.getDisplayName() == null) {
 
             plugin.getLogger().severe(plugin.getLocale().getMessage("severe-no-displayname").replace("{class}", arrow.getClass().getName()));
@@ -62,7 +65,7 @@ public class ArrowRegistry {
 
         arrows.add(arrow);
 
-        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", String.valueOf(arrow.getDescription())).replace("{authors}", arrow.getAuthors() + ""));
+        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", String.valueOf(arrow.getDescription())).replace("{authors}", arrow.getAuthors() + ""));
     }
 
     /**
@@ -81,11 +84,67 @@ public class ArrowRegistry {
 
                 arrowsToRemove.add(arrow);
 
-                plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-removed").replace("{internalname}", arrow.getInternalName()));
+                plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-removed").replace("{internalname}", arrow.getInternalName()));
                 continue;
             }
         }
 
         arrows.removeAll(arrowsToRemove);
+    }
+
+    /**
+     * Disables an arrow in the registry
+     * @param internalName the internal name of the arrow to disable
+     */
+    public void disableArrow(String internalName) {
+
+        if(arrows == null || arrows.size() == 0) {return;}
+
+        for(SArrow arrow: arrows) {
+
+            if(arrow.getInternalName().equalsIgnoreCase(internalName)) {
+
+                disabledArrowNames.add(arrow.getInternalName());
+
+                plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-disabled").replace("{internalname}", arrow.getInternalName()));
+                continue;
+            }
+        }
+    }
+
+    /**
+     * Enables an arrow in the registry
+     * @param internalName the the internal name of the arrow to enable
+     */
+    public void enableArrow(String internalName) {
+
+        if(arrows == null || arrows.size() == 0 || disabledArrowNames == null || disabledArrowNames.size() == 0) {return;}
+
+        List<String> namesToRemove = new ArrayList<String>();
+
+        for(String name: disabledArrowNames) {
+
+            if(name.equalsIgnoreCase(internalName)) {
+
+                namesToRemove.add(internalName);
+
+                plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-enabled").replace("{internalname}", name));
+                continue;
+            }
+        }
+
+        disabledArrowNames.removeAll(namesToRemove);
+    }
+
+    /**
+     * Returns if the named arrow is enabled
+     * @param internalName the internal name of the arrow to look for
+     * @return if the named arrow is enabled
+     */
+    public boolean isEnabled(String internalName) {
+
+        if(disabledArrowNames == null || disabledArrowNames.size() == 0) {return true;}
+
+        return disabledArrowNames.contains(internalName);
     }
 }
