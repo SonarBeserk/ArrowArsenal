@@ -3,7 +3,6 @@ package me.sonarbeserk.arrowarsenal.arrows;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
-
 import java.util.List;
 
 public abstract class SArrow {
