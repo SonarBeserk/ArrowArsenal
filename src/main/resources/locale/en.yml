@@ -19,7 +19,7 @@ severe-no-internalname: "{class} tried to register arrow with no internal name"
 debug-arrow-add: "Arrow with the display name: {displayname} internal name: {internalname} by {authors} with the description {description} was added to the arrow registry"
 
 # Debug message to send when an arrow is removed from the arrow registry | {internalname} - the internal name of the arrow
-debug-arrow-unregistered: "Arrow with the internal name: {internalname} has been removed from the arrow registry"
+debug-arrow-removed: "Arrow with the internal name: {internalname} has been removed from the arrow registry"
 
 # Debug message to send when an arrow is disabled in the arrow registry | {internalname} - the internal name of the arrow
 debug-arrow-disabled: "Arrow with the internal name: {internalname} has been disabled in the arrow registry"
