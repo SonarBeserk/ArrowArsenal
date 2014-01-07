@@ -68,6 +68,19 @@ public class ArrowRegistry {
     }
 
     /**
+     * Returns a read-only list of disabled arrows
+     * @return a read-only list of disabled arrows
+     */
+    public List<String> getDisabledArrowNames() {
+
+        List<String> readOnlyList = new ArrayList<String>();
+
+        readOnlyList.addAll(disabledArrowNames);
+
+        return readOnlyList;
+    }
+
+    /**
      * Adds an arrow to the registry
      * @param arrow the arrow to add to the registry
      */
