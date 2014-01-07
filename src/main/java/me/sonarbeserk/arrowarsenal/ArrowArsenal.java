@@ -72,6 +72,7 @@ public class ArrowArsenal extends JavaPlugin {
         data = null;
 
         registry.clearInstance();
+        registry = null;
 
         utils = null;
 
