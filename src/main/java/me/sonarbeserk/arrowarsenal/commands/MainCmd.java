@@ -48,7 +48,7 @@ public class MainCmd implements CommandExecutor {
 
             if(args[0].equalsIgnoreCase("reload")) {
 
-                if(!sender.hasPermission("neigh.commands.reload")) {
+                if(!sender.hasPermission("arrowarsenal.commands.reload")) {
 
                     if(sender instanceof Player) {
                         plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
