@@ -15,6 +15,8 @@ public class ArrowArsenal extends JavaPlugin {
 
     private Messaging utils = null;
 
+    private ArrowRegistry registry = null;
+
     public void onEnable() {
 
         saveDefaultConfig();
@@ -31,7 +33,7 @@ public class ArrowArsenal extends JavaPlugin {
 
         getCommand(getDescription().getName().toLowerCase()).setExecutor(new MainCmd(this));
 
-        new ArrowRegistry(this);
+        registry = new ArrowRegistry(this);
     }
 
 
@@ -68,6 +70,8 @@ public class ArrowArsenal extends JavaPlugin {
         data.set("arrow-list", ArrowRegistry.getInstance().getArrows());
         data.save();
         data = null;
+
+        registry.clearInstance();
 
         utils = null;
 

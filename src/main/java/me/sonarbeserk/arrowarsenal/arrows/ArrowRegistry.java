@@ -49,7 +49,7 @@ public class ArrowRegistry {
     /**
      * Clears the instance of the registry, only used for cleanup purposes
      */
-    public static void clearInstance() {
+    public void clearInstance() {
 
         instance = null;
     }
