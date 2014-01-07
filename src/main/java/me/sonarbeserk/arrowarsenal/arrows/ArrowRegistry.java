@@ -22,9 +22,19 @@ public class ArrowRegistry {
 
         this.plugin = plugin;
 
-        arrows = new HashMap<Integer, SArrow>();
+        arrows = (Map<Integer, SArrow>) plugin.getData().get("arrow-list");
 
-        disabledArrowNames = new ArrayList<String>();
+        if(arrows == null) {
+
+            arrows = new HashMap<Integer, SArrow>();
+        }
+
+        disabledArrowNames = (List<String>) plugin.getData().get("disabled-arrows");
+
+        if(disabledArrowNames == null) {
+
+            disabledArrowNames = new ArrayList<String>();
+        }
     }
 
     /**

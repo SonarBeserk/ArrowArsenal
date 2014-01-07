@@ -1,5 +1,6 @@
 package me.sonarbeserk.arrowarsenal;
 
+import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
 import me.sonarbeserk.arrowarsenal.commands.MainCmd;
 import me.sonarbeserk.arrowarsenal.utils.Messaging;
 import me.sonarbeserk.arrowarsenal.utils.Data;
@@ -61,6 +62,8 @@ public class ArrowArsenal extends JavaPlugin {
 
     public void onDisable() {
 
+        data.set("disabled-arrows", ArrowRegistry.getInstance().getDisabledArrowNames());
+        data.set("arrow-list", ArrowRegistry.getInstance().getArrows());
         data.save();
         data = null;
 
