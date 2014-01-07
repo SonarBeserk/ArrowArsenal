@@ -22,7 +22,7 @@ public class ArrowRegistry {
 
         this.plugin = plugin;
 
-        arrows = (Map<Integer, SArrow>) plugin.getData().get("arrow-list");
+        arrows = new HashMap<Integer, SArrow>();
 
         if(arrows == null) {
 
@@ -113,14 +113,14 @@ public class ArrowRegistry {
 
             arrows.put(1, arrow);
 
-            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
 
             return;
         }
 
         arrows.put(arrows.size() + 1, arrow);
 
-        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
 
         return;
     }
@@ -152,7 +152,7 @@ public class ArrowRegistry {
 
             arrows.remove(id);
 
-            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-removed").replace("{class}", arrows.getClass().getName()));
+            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-removed").replace("{class}", arrows.getClass().getName()));
             continue;
         }
     }
@@ -169,7 +169,7 @@ public class ArrowRegistry {
 
         disabledArrowNames.add(internalName);
 
-        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-disabled").replace("{class}", arrows.getClass().getName()));
+        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-disabled").replace("{class}", arrows.getClass().getName()));
     }
 
     /**
@@ -184,7 +184,7 @@ public class ArrowRegistry {
 
         disabledArrowNames.remove(internalName);
 
-        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-enabled").replace("{class}", arrows.getClass().getName()));
+        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-enabled").replace("{class}", arrows.getClass().getName()));
     }
 
     /**
