@@ -30,6 +30,8 @@ public class ArrowArsenal extends JavaPlugin {
         utils = new Messaging(this);
 
         getCommand(getDescription().getName().toLowerCase()).setExecutor(new MainCmd(this));
+
+        new ArrowRegistry(this);
     }
 
 
