@@ -2,7 +2,9 @@ package me.sonarbeserk.arrowarsenal.arrows;
 
 import me.sonarbeserk.arrowarsenal.ArrowArsenal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ArrowRegistry {
 
@@ -10,7 +12,7 @@ public class ArrowRegistry {
 
     private ArrowArsenal plugin = null;
 
-    private List<SArrow> arrows = null;
+    private Map<Integer, SArrow> arrows = null;
 
     private List<String> disabledArrowNames = null;
 
@@ -20,7 +22,9 @@ public class ArrowRegistry {
 
         this.plugin = plugin;
 
-        arrows = new ArrayList<SArrow>();
+        arrows = new HashMap<Integer, SArrow>();
+
+        disabledArrowNames = new ArrayList<String>();
     }
 
     /**
@@ -44,11 +48,21 @@ public class ArrowRegistry {
      * Returns a read-only list of registered arrows
      * @return a read-only list of registered arrows
      */
-    public List<SArrow> getArrows() {
+    public Map<Integer, SArrow> getArrows() {
 
-        List<SArrow> readOnlyList = new ArrayList<SArrow>();
+        if(arrows == null) {return null;}
 
-        readOnlyList.addAll(arrows);
+        Map<Integer, SArrow> readOnlyList = new HashMap<Integer, SArrow>();
+
+        if(arrows.size() == 0) {
+
+            return readOnlyList;
+        }
+
+        for(int id: arrows.keySet()) {
+
+            readOnlyList.put(id, arrows.get(id));
+        }
 
         return readOnlyList;
     }
@@ -65,15 +79,27 @@ public class ArrowRegistry {
 
             plugin.getLogger().severe(plugin.getLocale().getMessage("severe-no-displayname").replace("{class}", arrow.getClass().getName()));
             return;
+
         } else if(arrow.getInternalName() == null) {
 
             plugin.getLogger().severe(plugin.getLocale().getMessage("severe-no-internalname").replace("{class}", arrow.getClass().getName()));
             return;
         }
 
-        arrows.add(arrow);
+        if(arrows.size() == 0) {
 
-        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", String.valueOf(arrow.getDescription())).replace("{authors}", arrow.getAuthors() + ""));
+            arrows.put(1, arrow);
+
+            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+
+            return;
+        }
+
+        arrows.put(arrows.size() + 1, arrow);
+
+        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+
+        return;
     }
 
     /**
@@ -84,20 +110,28 @@ public class ArrowRegistry {
 
         if(arrows == null || arrows.size() == 0) {return;}
 
-        List<SArrow> arrowsToRemove = new ArrayList<SArrow>();
+        List<Integer> idsToRemove = new ArrayList<Integer>();
 
-        for(SArrow arrow: arrows) {
+        for(int id: arrows.keySet()) {
 
-            if(arrow.getInternalName().equalsIgnoreCase(internalName)) {
+            if(arrows.get(id) == null) {continue;}
 
-                arrowsToRemove.add(arrow);
+            if(arrows.get(id).getInternalName().equalsIgnoreCase(internalName)) {
 
-                plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-removed").replace("{internalname}", arrow.getInternalName()));
+                idsToRemove.add(id);
                 continue;
             }
         }
 
-        arrows.removeAll(arrowsToRemove);
+        if(idsToRemove.size() == 0) {return;}
+
+        for(int id: idsToRemove) {
+
+            arrows.remove(id);
+
+            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-removed").replace("{class}", arrows.getClass().getName()));
+            continue;
+        }
     }
 
     /**
@@ -108,16 +142,11 @@ public class ArrowRegistry {
 
         if(arrows == null || arrows.size() == 0) {return;}
 
-        for(SArrow arrow: arrows) {
+        if(disabledArrowNames.contains(internalName)) {return;}
 
-            if(arrow.getInternalName().equalsIgnoreCase(internalName)) {
+        disabledArrowNames.add(internalName);
 
-                disabledArrowNames.add(arrow.getInternalName());
-
-                plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-disabled").replace("{internalname}", arrow.getInternalName()));
-                continue;
-            }
-        }
+        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-disabled").replace("{class}", arrows.getClass().getName()));
     }
 
     /**
@@ -126,22 +155,13 @@ public class ArrowRegistry {
      */
     public void enableArrow(String internalName) {
 
-        if(arrows == null || arrows.size() == 0 || disabledArrowNames == null || disabledArrowNames.size() == 0) {return;}
+        if(arrows == null || arrows.size() == 0) {return;}
 
-        List<String> namesToRemove = new ArrayList<String>();
+        if(!disabledArrowNames.contains(internalName)) {return;}
 
-        for(String name: disabledArrowNames) {
+        disabledArrowNames.remove(internalName);
 
-            if(name.equalsIgnoreCase(internalName)) {
-
-                namesToRemove.add(internalName);
-
-                plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-enabled").replace("{internalname}", name));
-                continue;
-            }
-        }
-
-        disabledArrowNames.removeAll(namesToRemove);
+        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrowregistry-enabled").replace("{class}", arrows.getClass().getName()));
     }
 
     /**
@@ -160,5 +180,7 @@ public class ArrowRegistry {
                 return false;
             }
         }
+
+        return true;
     }
 }
