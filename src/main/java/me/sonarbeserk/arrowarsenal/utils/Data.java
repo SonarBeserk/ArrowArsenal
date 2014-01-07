@@ -3,7 +3,9 @@ package me.sonarbeserk.arrowarsenal.utils;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Map;
 import java.util.logging.Level;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -112,10 +114,32 @@ public class Data {
     }
 
     /**
-     * Gets a entry from the data file
+     * Returns a data entry from the path specified
+     * @param path the path to the entry
+     * @return a data entry from the path specified
      */
     public Object get(String path) {
 
         return getFileConfiguration().get(path);
+    }
+
+    /**
+     * Returns the configuration section at the path specified
+     * @param path the path to the configuration section
+     * @return the configuration section at the path specified
+     */
+    public ConfigurationSection getConfigurationSection(String path) {
+
+        return getFileConfiguration().getConfigurationSection(path);
+    }
+
+    /**
+     * Creates a configuration section with a map at the path specified
+     * @param path the path to create the section at
+     * @param map the value to set
+     */
+    public void createSection(String path, Map<?, ?> map) {
+
+        getFileConfiguration().createSection(path, map);
     }
 }
