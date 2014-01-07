@@ -1,6 +1,8 @@
 package me.sonarbeserk.arrowarsenal.commands;
 
 import me.sonarbeserk.arrowarsenal.ArrowArsenal;
+import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
+import me.sonarbeserk.arrowarsenal.arrows.SArrow;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -71,6 +73,26 @@ public class MainCmd implements CommandExecutor {
 
                     plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("reloaded"));
                     return true;
+                }
+            }
+
+            if(args[0].equalsIgnoreCase("list")) {
+
+                for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+
+                    SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+
+                    if(arrow == null) {continue;}
+
+                    if(sender instanceof Player) {
+
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displaynane}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                        continue;
+                    } else {
+
+                        plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displaynane}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                        continue;
+                    }
                 }
             }
 

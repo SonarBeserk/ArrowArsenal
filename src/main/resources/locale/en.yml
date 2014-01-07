@@ -9,10 +9,13 @@ reloaded: "&7The configuration has been reloaded!"
 # Usage for the arrowarsenal master command
 usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files"
 
-# Message to send when an arrow without a display name is trying to be registered | {name} - the name of the class
+# Message to use when listing arrows | {id} - the id of the arrow in the registry (used for lookups) | {displayname} -  the user friendly name of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled
+arrow-list: "&2ID:&r &e{id}&r &2Name: &e{displayname}&r &2Enabled:&r &e{enabled}"
+
+# Severe message to send when an arrow without a display name is trying to be registered | {name} - the name of the class
 severe-no-displayname: "{class} tried to register arrow with no display name"
 
-# Message to send when an arrow without a internal name is trying to be registered | {name} - the name of the class
+# Severe message to send when an arrow without a internal name is trying to be registered | {name} - the name of the class
 severe-no-internalname: "{class} tried to register arrow with no internal name"
 
 # Debug message to send when an arrow is added to the arrow registry | {displayname} the display name of the arrow | {internalname} - the internal name of the arrow | {authors} - the authors of the plugin | {description} - the description of the arrow
