@@ -28,14 +28,6 @@ public class Messaging {
 
         if(receiver instanceof ConsoleCommandSender) {
 
-            if(shouldPrefix) {
-
-                String prefix = plugin.getConfig().getString("settings.prefix");
-
-                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg)));
-                return;
-            }
-
             receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg)));
             return;
         }
