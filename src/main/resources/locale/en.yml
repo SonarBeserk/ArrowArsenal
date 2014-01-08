@@ -10,7 +10,7 @@ reloaded: "&7The configuration has been reloaded!"
 usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files \n list - lists all arrows found in the registry"
 
 # Message to use when listing arrows | {id} - the id of the arrow in the registry (used for lookups) | {displayname} -  the user friendly name of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled
-arrow-list: "&2ID:&r &e{id}&r &2Name: &e{displayname}&r &2Enabled:&r &e{enabled}"
+arrow-list: "&2ID:&r &e{id}&r &2Name:&r &e{displayname}&r &2Enabled:&r &e{enabled}&r"
 
 # Message to send when no arrows are found in the registry
 arrow-none-loaded: "&4No arrows were found in the registry!"
