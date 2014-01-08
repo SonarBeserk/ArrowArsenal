@@ -28,7 +28,7 @@ public class Messaging {
 
         if(receiver instanceof ConsoleCommandSender) {
 
-            receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg)));
+            receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg.replace("{name}", plugin.getDescription().getName()))));
             return;
         }
 
@@ -38,11 +38,11 @@ public class Messaging {
 
                 String prefix = plugin.getConfig().getString("settings.prefix");
 
-                receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg));
+                receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg.replace("{name}", plugin.getDescription().getName())));
                 return;
             }
 
-            receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', msg.replace("{name}", plugin.getDescription().getName())));
             return;
         } else {
 
@@ -50,11 +50,11 @@ public class Messaging {
 
                 String prefix = plugin.getConfig().getString("settings.prefix");
 
-                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg)));
+                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg.replace("{name}", plugin.getDescription().getName()))));
                 return;
             }
 
-            receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg)));
+            receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg.replace("{name}", plugin.getDescription().getName()))));
             return;
         }
     }
@@ -76,7 +76,7 @@ public class Messaging {
 
                 String prefix = plugin.getConfig().getString("settings.prefix");
 
-                receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg));
+                receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg.replace("{name}", plugin.getDescription().getName())));
                 return;
             }
 
@@ -88,11 +88,11 @@ public class Messaging {
 
                 String prefix = plugin.getConfig().getString("settings.prefix");
 
-                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg)));
+                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg.replace("{name}", plugin.getDescription().getName()))));
                 return;
             }
 
-            receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg)));
+            receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg.replace("{name}", plugin.getDescription().getName()))));
             return;
         }
     }
@@ -116,11 +116,11 @@ public class Messaging {
 
                 String prefix = plugin.getConfig().getString("settings.prefix");
 
-                receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg));
+                receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg.replace("{name}", plugin.getDescription().getName())));
                 return;
             }
 
-            receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', msg.replace("{name}", plugin.getDescription().getName())));
             return;
         } else {
 
@@ -128,11 +128,11 @@ public class Messaging {
 
                 String prefix = plugin.getConfig().getString("settings.prefix");
 
-                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg)));
+                receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', prefix + msg.replace("{name}", plugin.getDescription().getName()))));
                 return;
             }
 
-            receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg)));
+            receiver.sendMessage(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', msg.replace("{name}", plugin.getDescription().getName()))));
             return;
         }
     }
