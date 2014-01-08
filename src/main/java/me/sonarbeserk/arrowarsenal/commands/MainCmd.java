@@ -113,7 +113,7 @@ public class MainCmd implements CommandExecutor {
 
             if(args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("information")) {
 
-                if(args.length == 2) {
+                if(args.length == 1) {
 
                     if(sender instanceof Player) {
                         plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
@@ -127,7 +127,7 @@ public class MainCmd implements CommandExecutor {
 
                 for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
 
-                    if(ArrowRegistry.getInstance().getArrows().get(id).getInternalName().equalsIgnoreCase(args[1])) {
+                    if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
 
                         SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
 
