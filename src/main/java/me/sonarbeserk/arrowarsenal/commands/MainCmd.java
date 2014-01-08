@@ -107,6 +107,8 @@ public class MainCmd implements CommandExecutor {
                         continue;
                     }
                 }
+
+                return true;
             }
 
             if(sender instanceof Player) {
