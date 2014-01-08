@@ -24,11 +24,11 @@ public class MainCmd implements CommandExecutor {
 
             if(sender instanceof Player) {
 
-                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal"));
                 return true;
             } else {
 
-                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal"));
                 return true;
             }
         }
@@ -39,11 +39,11 @@ public class MainCmd implements CommandExecutor {
 
                 if(sender instanceof Player) {
 
-                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal"));
                     return true;
                 } else {
 
-                    plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                    plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal"));
                     return true;
                 }
             }
@@ -86,11 +86,11 @@ public class MainCmd implements CommandExecutor {
 
                     if(sender instanceof Player) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displaynane}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                         continue;
                     } else {
 
-                        plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displaynane}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                        plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                         continue;
                     }
                 }
