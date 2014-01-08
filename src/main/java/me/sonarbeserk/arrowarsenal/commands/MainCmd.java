@@ -78,6 +78,19 @@ public class MainCmd implements CommandExecutor {
 
             if(args[0].equalsIgnoreCase("list")) {
 
+                if(ArrowRegistry.getInstance().getArrows().size() == 0) {
+
+                    if(sender instanceof Player) {
+
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                        return true;
+                    } else {
+
+                        plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                        return true;
+                    }
+                }
+
                 for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
 
                     SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);

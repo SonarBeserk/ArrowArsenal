@@ -12,6 +12,9 @@ usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's fil
 # Message to use when listing arrows | {id} - the id of the arrow in the registry (used for lookups) | {displayname} -  the user friendly name of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled
 arrow-list: "&2ID:&r &e{id}&r &2Name: &e{displayname}&r &2Enabled:&r &e{enabled}"
 
+# Message to send when no arrows are found in the registry
+arrow-none-loaded: "&4No arrows were found in the registry!"
+
 # Severe message to send when an arrow without a display name is trying to be registered | {name} - the name of the class
 severe-no-displayname: "{class} tried to register arrow with no display name"
 
