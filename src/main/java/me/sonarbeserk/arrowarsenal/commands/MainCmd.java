@@ -111,6 +111,48 @@ public class MainCmd implements CommandExecutor {
                 return true;
             }
 
+            if(args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("information")) {
+
+                if(args.length == 2) {
+
+                    if(sender instanceof Player) {
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                        return true;
+                    } else {
+
+                        plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                        return true;
+                    }
+                }
+
+                for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+
+                    if(ArrowRegistry.getInstance().getArrows().get(id).getInternalName().equalsIgnoreCase(args[1])) {
+
+                        SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+
+                        if(sender instanceof Player) {
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+                            return true;
+                        } else {
+
+                            plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+                            return true;
+                        }
+                    }
+                }
+
+                if(sender instanceof Player) {
+
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-not-found"));
+                    return true;
+                } else {
+
+                    plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-not-found"));
+                    return true;
+                }
+            }
+
             if(sender instanceof Player) {
                 plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
