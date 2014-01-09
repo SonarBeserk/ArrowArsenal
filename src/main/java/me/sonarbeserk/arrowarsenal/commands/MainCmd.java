@@ -150,10 +150,10 @@ public class MainCmd implements CommandExecutor {
                             
                             if(arrow.canBuy()) {
                                 
-                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{cost}", arrow.getCost() + ""));
+                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             } else {
 
-                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             }
                             
                             if(arrow.getPermissions() == null || arrow.getPermissions().size() == 0) {continue;}
@@ -171,10 +171,10 @@ public class MainCmd implements CommandExecutor {
 
                             if(arrow.canBuy()) {
                                 
-                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{cost}", arrow.getCost() + ""));
+                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             } else {
 
-                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             }
 
                             if(arrow.getPermissions() == null || arrow.getPermissions().size() == 0) {continue;}

@@ -13,13 +13,13 @@ usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's fil
 arrow-list: "&2ID:&r &e{id}&r &2Name:&r &e{displayname}&r &2Enabled:&r &e{enabled}&r"
 
 # Message to use when listing arrows and an arrow may not be bought | {id} - the id of the arrow in the registry (used for lookups) | {displayname} -  the user friendly name of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled
-arrow-list-no-buy: "&2ID:&r &e{id}&r &2Name:&r &e{displayname}&r &2Cost:&r &4Can Not Buy&r &2Enabled:&r &e{enabled}&r"
+arrow-list-no-buy: "&2ID:&r &e{id}&r &2Name:&r &e{displayname}&r &2Cost:&r &4Can Not Buy&r &2Enabled:&r &e{enabled}&r &2Enabled:&r &e{enabled}&r"
 
-# Message to send when giving arrow info | {displayname} the display name of the arrow | {internalname} - the internal name of the arrow | {authors} - the authors of the plugin | {description} - the description of the arrow| {cost} - the cost of the arrow
-arrow-info: "&2Name:&r &e{displayname}&r &2by&r &e{authors}&r &2Description:&r &e{description}&r &2Cost:&r &e{cost}&r"
+# Message to send when giving arrow info | {displayname} the display name of the arrow | {internalname} - the internal name of the arrow | {authors} - the authors of the plugin | {description} - the description of the arrow| {cost} - the cost of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled
+arrow-info: "&2Name:&r &e{displayname}&r &2by&r &e{authors}&r &2Description:&r &e{description}&r &2Cost:&r &e{cost}&r &2Enabled:&r &e{enabled}&r"
 
-# Message to send when giving arrow info and an arrow may not be bought | {displayname} the display name of the arrow | {internalname} - the internal name of the arrow | {authors} - the authors of the plugin | {description} - the description of the arrow
-arrow-info-no-buy: "&2Name:&r &e{displayname}&r &2by&r &e{authors}&r &2Description:&r &e{description}&r &2Cost:&r &4Can Not Buy&r"
+# Message to send when giving arrow info and an arrow may not be bought | {displayname} the display name of the arrow | {internalname} - the internal name of the arrow | {authors} - the authors of the plugin | {description} - the description of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled
+arrow-info-no-buy: "&2Name:&r &e{displayname}&r &2by&r &e{authors}&r &2Description:&r &e{description}&r &2Cost:&r &4Can Not Buy&r &2Enabled:&r &e{enabled}&r"
 
 # Message to send when listing permission info about an arrow | {permission} - the permission node | {description} -  the reason for the node
 arrow-info-permission: "&2Permission:&r &e{permission}&r &2Description:&r &e{description}&r"
