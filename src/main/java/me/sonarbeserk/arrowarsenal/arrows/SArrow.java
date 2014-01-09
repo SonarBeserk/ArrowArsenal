@@ -33,8 +33,8 @@ public abstract class SArrow {
     public abstract List<String> getAuthors();
 
     /**
-     * Returns a map of the permissions, the order being permission value then reason for the permission
-     * @return a map of the permissions, the order being permission value then reason for the permission
+     * Returns a map of the permissions, the order being permission node then reason for the permission
+     * @return a map of the permissions, the order being permission node then reason for the permission
      */
     public abstract Map<String, String> getPermissions();
 
