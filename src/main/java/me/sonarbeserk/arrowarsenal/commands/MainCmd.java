@@ -160,7 +160,7 @@ public class MainCmd implements CommandExecutor {
 
                                 if(arrow.getPermissions().get(node) == null) {continue;}
 
-                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getPermissions().get(node)));
+                                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getPermissions().get(node)));
                                 continue;
                             }
 
