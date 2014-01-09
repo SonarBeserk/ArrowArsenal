@@ -4,6 +4,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import java.util.List;
+import java.util.Map;
 
 public abstract class SArrow {
 
