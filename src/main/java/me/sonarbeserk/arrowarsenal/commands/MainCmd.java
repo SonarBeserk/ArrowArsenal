@@ -126,7 +126,7 @@ public class MainCmd implements CommandExecutor {
                 return true;
             }
 
-            if(args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("information")) {
+            if(args[0].equalsIgnoreCase("info")) {
 
                 if(args.length == 1) {
 
