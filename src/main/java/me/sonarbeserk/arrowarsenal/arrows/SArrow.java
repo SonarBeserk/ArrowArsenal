@@ -32,6 +32,12 @@ public abstract class SArrow {
     public abstract List<String> getAuthors();
 
     /**
+     * Returns a map of the permissions, the order being permission value then reason for the permission
+     * @return a map of the permissions, the order being permission value then reason for the permission
+     */
+    public abstract Map<String, String> getPermissions();
+
+    /**
      * Called when an arrow is launched
      * @param event the event where the arrow was launched
      */
