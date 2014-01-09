@@ -156,6 +156,8 @@ public class MainCmd implements CommandExecutor {
                                 plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
                             }
                             
+                            if(arrow.getPermissions().size() == 0) {continue;}
+                            
                             for(String node: arrow.getPermissions().keySet()){
 
                                 if(arrow.getPermissions().get(node) == null) {continue;}
@@ -175,6 +177,8 @@ public class MainCmd implements CommandExecutor {
                                 plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
                             }
 
+                            if(arrow.getPermissions().size() == 0) {continue;}
+                            
                             for(String node: arrow.getPermissions().keySet()){
 
                                 if(arrow.getPermissions().get(node) == null) {continue;}
