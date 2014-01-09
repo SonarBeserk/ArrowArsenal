@@ -7,7 +7,7 @@ no-permission: "&4You do not have permission to do that!"
 reloaded: "&7The configuration has been reloaded!"
 
 # Usage for the arrowarsenal master command
-usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files \n list - lists all arrows found in the registry \n info (id) - lists full information about the arrow connected to the id specified"
+usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files \n list - lists all arrows, lists id, name and if the arrow is enabled \n info (id) - lists full information about the arrow connected to the id, Lists name, description and authors"
 
 # Message to use when listing arrows | {id} - the id of the arrow in the registry (used for lookups) | {displayname} -  the user friendly name of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled
 arrow-list: "&2ID:&r &e{id}&r &2Name:&r &e{displayname}&r &2Enabled:&r &e{enabled}&r"
@@ -16,7 +16,7 @@ arrow-list: "&2ID:&r &e{id}&r &2Name:&r &e{displayname}&r &2Enabled:&r &e{enable
 arrow-info: "&2Name:&r &e{displayname}&r &2by&r &e{authors}&r &2Description:&r &e{description}&r"
 
 # Message to send when giving arrow info and there was no arrow found for the specified id
-arrow-not-found: "&4No arrow with that id was found!"
+arrow-not-found: "&4No arrow with that id was found! Please use /aa list to find the arrow id."
 
 # Message to send when no arrows are found in the registry
 arrow-none-loaded: "&4No arrows were found in the registry!"
