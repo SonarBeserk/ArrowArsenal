@@ -98,13 +98,28 @@ public class MainCmd implements CommandExecutor {
                     if(arrow == null) {continue;}
 
                     if(sender instanceof Player) {
+                        
+                        if(arrow.canBuy()) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
-                        continue;
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + "").replace("{cost}", arrow.getCost() + ""));
+                            continue;
+                        } else {
+
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-list-no-buy").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                            continue;
+                        }
+                        
                     } else {
 
-                        plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
-                        continue;
+                        if(arrow.canBuy()) {
+
+                            plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + "").replace("{cost}", arrow.getCost() + ""));
+                            continue;
+                        } else {
+
+                            plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-list-no-buy").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                            continue;
+                        }
                     }
                 }
 
@@ -130,10 +145,17 @@ public class MainCmd implements CommandExecutor {
                     if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
 
                         SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
-
+                        
                         if(sender instanceof Player) {
-                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+                            
+                            if(arrow.canBuy()) {
+                                
+                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{cost}", arrow.getCost() + ""));
+                            } else {
 
+                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+                            }
+                            
                             for(String node: arrow.getPermissions().keySet()){
 
                                 if(arrow.getPermissions().get(node) == null) {continue;}
@@ -145,7 +167,13 @@ public class MainCmd implements CommandExecutor {
                             return true;
                         } else {
 
-                            plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+                            if(arrow.canBuy()) {
+                                
+                                plugin.getMessaging().sendMessage(sender, false,  true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{cost}", arrow.getCost() + ""));
+                            } else {
+
+                                plugin.getMessaging().sendMessage(sender, false,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+                            }
 
                             for(String node: arrow.getPermissions().keySet()){
 
