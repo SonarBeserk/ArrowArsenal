@@ -39,6 +39,18 @@ public abstract class SArrow {
     public abstract Map<String, String> getPermissions();
 
     /**
+     * Returns if the arrow is possible to be bought with currency
+     * @return if the arrow is possible to be bought with currency
+     */
+    public abstract boolean canBuy();
+
+    /**
+     * Returns the cost to buy the arrow if it can be bought
+     * @return the cost to buy the arrow if it can be bought
+     */
+    public abstract int getCost();
+
+    /**
      * Called when an arrow is launched
      * @param event the event where the arrow was launched
      */
