@@ -19,7 +19,7 @@ arrow-list-no-buy: "&2ID:&r &e{id}&r &2Name:&r &e{displayname}&r &2Cost:&r &4Can
 arrow-info: "&2Name:&r &e{displayname}&r &2by&r &e{authors}&r &2Description:&r &e{description}&r &2Cost:&r &e{cost}&r"
 
 # Message to send when giving arrow info and an arrow may not be bought | {displayname} the display name of the arrow | {internalname} - the internal name of the arrow | {authors} - the authors of the plugin | {description} - the description of the arrow
-arrow-info-no-buy: "&2Name:&r &e{displayname}&r &2by&r &e{authors}&r &2Description:&r &e{description}&r &2Cost:&r &eCan Not Buy&r"
+arrow-info-no-buy: "&2Name:&r &e{displayname}&r &2by&r &e{authors}&r &2Description:&r &e{description}&r &2Cost:&r &4Can Not Buy&r"
 
 # Message to send when listing permission info about an arrow | {permission} - the permission node | {description} -  the reason for the node
 arrow-info-permission: "&2Permission:&r &e{permission}&r &2Description:&r &e{description}&r"
