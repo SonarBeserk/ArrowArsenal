@@ -133,10 +133,28 @@ public class MainCmd implements CommandExecutor {
 
                         if(sender instanceof Player) {
                             plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+
+                            for(String node: arrow.getPermissions().keySet()){
+
+                                if(arrow.getPermissions().get(node) == null) {continue;}
+
+                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getPermissions().get(node)));
+                                continue;
+                            }
+
                             return true;
                         } else {
 
                             plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+
+                            for(String node: arrow.getPermissions().keySet()){
+
+                                if(arrow.getPermissions().get(node) == null) {continue;}
+
+                                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getPermissions().get(node)));
+                                continue;
+                            }
+
                             return true;
                         }
                     }
