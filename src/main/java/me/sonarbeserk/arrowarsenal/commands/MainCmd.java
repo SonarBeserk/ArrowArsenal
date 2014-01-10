@@ -57,6 +57,7 @@ public class MainCmd implements CommandExecutor {
                 if(!sender.hasPermission("arrowarsenal.commands.reload")) {
 
                     if(sender instanceof Player) {
+
                         plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
                         return true;
                     } else {
@@ -112,7 +113,6 @@ public class MainCmd implements CommandExecutor {
                             plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-list-no-buy").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             continue;
                         }
-                        
                     } else {
 
                         if(arrow.canBuy()) {
@@ -135,6 +135,7 @@ public class MainCmd implements CommandExecutor {
                 if(args.length == 1) {
 
                     if(sender instanceof Player) {
+
                         plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                         return true;
                     } else {
@@ -151,17 +152,17 @@ public class MainCmd implements CommandExecutor {
                         SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
                         
                         if(sender instanceof Player) {
-                            
+
                             if(arrow.canBuy()) {
-                                
-                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+
+                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             } else {
 
-                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             }
-                            
+
                             if(arrow.getPermissions() == null || arrow.getPermissions().size() == 0) {continue;}
-                            
+
                             for(String node: arrow.getPermissions().keySet()){
 
                                 if(arrow.getPermissions().get(node) == null) {continue;}
@@ -174,11 +175,11 @@ public class MainCmd implements CommandExecutor {
                         } else {
 
                             if(arrow.canBuy()) {
-                                
-                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+
+                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             } else {
 
-                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             }
 
                             if(arrow.getPermissions() == null || arrow.getPermissions().size() == 0) {continue;}
@@ -212,6 +213,7 @@ public class MainCmd implements CommandExecutor {
                 if(!sender.hasPermission("arrowarsenal.commands.disable")) {
 
                     if(sender instanceof Player) {
+
                         plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
                         return true;
                     } else {
@@ -236,6 +238,7 @@ public class MainCmd implements CommandExecutor {
                             if(ArrowRegistry.getInstance().getDisabledArrowNames().contains(arrow.getInternalName())) {
 
                                 if(sender instanceof Player) {
+
                                     plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-disabled").replace("{displayname}", arrow.getDisplayName()));
                                     return true;
                                 } else {
@@ -248,6 +251,7 @@ public class MainCmd implements CommandExecutor {
                             arrowNamesToDisable.add(arrow.getInternalName());
 
                             if(sender instanceof Player) {
+
                                 plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-disable").replace("{displayname}", arrow.getDisplayName()));
                                 continue;
                             } else {
@@ -273,6 +277,7 @@ public class MainCmd implements CommandExecutor {
                 if(!sender.hasPermission("arrowarsenal.commands.enable")) {
 
                     if(sender instanceof Player) {
+
                         plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
                         return true;
                     } else {
@@ -297,6 +302,7 @@ public class MainCmd implements CommandExecutor {
                             if(!ArrowRegistry.getInstance().getDisabledArrowNames().contains(arrow.getInternalName())) {
 
                                 if(sender instanceof Player) {
+
                                     plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-enabled").replace("{displayname}", arrow.getDisplayName()));
                                     return true;
                                 } else {
@@ -309,6 +315,7 @@ public class MainCmd implements CommandExecutor {
                             arrowNamesToEnable.add(arrow.getInternalName());
 
                             if(sender instanceof Player) {
+
                                 plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-enable").replace("{displayname}", arrow.getDisplayName()));
                                 continue;
                             } else {
@@ -330,6 +337,7 @@ public class MainCmd implements CommandExecutor {
             }
 
             if(sender instanceof Player) {
+
                 plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             } else {

@@ -113,14 +113,14 @@ public class ArrowRegistry {
 
             arrows.put(1, arrow);
 
-            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", arrow.getAuthors() + ""));
 
             return;
         }
 
         arrows.put(arrows.size() + 1, arrow);
 
-        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription()).replace("{authors}", arrow.getAuthors() + ""));
+        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", arrow.getAuthors() + ""));
 
         return;
     }
