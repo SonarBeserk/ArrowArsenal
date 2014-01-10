@@ -31,16 +31,16 @@ arrow-not-found: "&4No arrow with that id was found! Please use /aa list to find
 arrow-none-loaded: "&4No arrows were found in the registry!"
 
 # Message to send when disabling an arrow | {displayname} - the user friendly name of the arrow
-arrow-disable: "&2You have disabled {displayname}."
+arrow-disable: "&2You have disabled {displayname}&r &2."
 
 # Message to send when enabling an arrow | {displayname} - the user friendly name of the arrow
-arrow-enable: "&2You have enabled {displayname}."
+arrow-enable: "&2You have enabled {displayname}&r &2."
 
 # Message to send when an arrow is already disabled | {displayname} - the user friendly name of the arrow
-arrow-disabled: "&4{displayname} was already disabled!"
+arrow-disabled: "&4{displayname}&r &4is already disabled!"
 
 # Message to send when an arrow is already enabled | {displayname} - the user friendly name of the arrow
-arrow-enabled: "&4{displayname} was already enabled!"
+arrow-enabled: "&4{displayname}&r &4is already enabled!"
 
 # Severe message to send when an arrow without a display name is trying to be registered | {name} - the name of the class
 severe-no-displayname: "{class} tried to register arrow with no display name"
