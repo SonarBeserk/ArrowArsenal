@@ -9,6 +9,12 @@ permissions:
   arrowarsenal.commands.reload:
     description: allows use of the reload subcommand
     default: op
+  arrowarsenal.commands.disable:
+    description: allows use of the disable subcommand
+    default: op
+  arrowarsenal.commands.enable:
+    description: allows use of the disable subcommand
+    default: op
 
 commands:
   arrowarsenal:

@@ -7,7 +7,7 @@ no-permission: "&4You do not have permission to do that!"
 reloaded: "&7The configuration has been reloaded!"
 
 # Usage for the arrowarsenal master command
-usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files \n list - lists all arrows, lists id, name and if the arrow is enabled \n info (id) - lists full information about the arrow connected to the id, Lists name, description and authors"
+usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files \n list - lists all arrows, lists id, name and if the arrow is enabled \n info (id) - lists full information about the arrow connected to the id, Lists name, description and authors \n disable (id) - disables the arrow connected to the id \n enable (id) - enables the arrow connected to the id"
 
 # Message to use when listing arrows | {id} - the id of the arrow in the registry (used for lookups) | {displayname} -  the user friendly name of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled | {cost} - the cost of the arrow
 arrow-list: "&2ID:&r &e{id}&r &2Name:&r &e{displayname}&r &2Enabled:&r &e{enabled}&r"
@@ -29,6 +29,18 @@ arrow-not-found: "&4No arrow with that id was found! Please use /aa list to find
 
 # Message to send when no arrows are found in the registry
 arrow-none-loaded: "&4No arrows were found in the registry!"
+
+# Message to send when disabling an arrow | {displayname} - the user friendly name of the arrow
+arrow-disable: "&2You have disabled {displayname}."
+
+# Message to send when enabling an arrow | {displayname} - the user friendly name of the arrow
+arrow-enable: "&2You have enabled {displayname}."
+
+# Message to send when an arrow is already disabled | {displayname} - the user friendly name of the arrow
+arrow-disabled: "&4{displayname} was already disabled!"
+
+# Message to send when an arrow is already enabled | {displayname} - the user friendly name of the arrow
+arrow-enabled: "&4{displayname} was already enabled!"
 
 # Severe message to send when an arrow without a display name is trying to be registered | {name} - the name of the class
 severe-no-displayname: "{class} tried to register arrow with no display name"

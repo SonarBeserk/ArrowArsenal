@@ -3,10 +3,14 @@ package me.sonarbeserk.arrowarsenal.commands;
 import me.sonarbeserk.arrowarsenal.ArrowArsenal;
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
 import me.sonarbeserk.arrowarsenal.arrows.SArrow;
+import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainCmd implements CommandExecutor {
 
@@ -199,6 +203,128 @@ public class MainCmd implements CommandExecutor {
                 } else {
 
                     plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-not-found"));
+                    return true;
+                }
+            }
+
+            if(args[0].equalsIgnoreCase("disable")) {
+
+                if(!sender.hasPermission("arrowarsenal.commands.disable")) {
+
+                    if(sender instanceof Player) {
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
+                        return true;
+                    } else {
+
+                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("no-permission"));
+                        return true;
+                    }
+                }
+
+                if(args.length > 1) {
+
+                    List<String> arrowNamesToDisable = new ArrayList<String>();
+
+                    for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+
+                        if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
+
+                            SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+
+                            if(arrow == null) {continue;}
+
+                            if(ArrowRegistry.getInstance().getDisabledArrowNames().contains(arrow.getInternalName())) {
+
+                                if(sender instanceof Player) {
+                                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-disabled").replace("{displayname}", arrow.getDisplayName()));
+                                    return true;
+                                } else {
+
+                                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-disabled").replace("{displayname}", arrow.getDisplayName()));
+                                    return true;
+                                }
+                            }
+
+                            arrowNamesToDisable.add(arrow.getInternalName());
+
+                            if(sender instanceof Player) {
+                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-disable").replace("{displayname}", arrow.getDisplayName()));
+                                continue;
+                            } else {
+
+                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-disable").replace("{displayname}", arrow.getDisplayName()));
+                                continue;
+                            }
+                        }
+                    }
+
+                    for(String name: arrowNamesToDisable) {
+
+                        ArrowRegistry.getInstance().disableArrow(name);
+                        continue;
+                    }
+
+                    return true;
+                }
+            }
+
+            if(args[0].equalsIgnoreCase("enable")) {
+
+                if(!sender.hasPermission("arrowarsenal.commands.enable")) {
+
+                    if(sender instanceof Player) {
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
+                        return true;
+                    } else {
+
+                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("no-permission"));
+                        return true;
+                    }
+                }
+
+                if(args.length > 1) {
+
+                    List<String> arrowNamesToEnable = new ArrayList<String>();
+
+                    for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+
+                        if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
+
+                            SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+
+                            if(arrow == null) {continue;}
+
+                            if(!ArrowRegistry.getInstance().getDisabledArrowNames().contains(arrow.getInternalName())) {
+
+                                if(sender instanceof Player) {
+                                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-enabled").replace("{displayname}", arrow.getDisplayName()));
+                                    return true;
+                                } else {
+
+                                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-enabled").replace("{displayname}", arrow.getDisplayName()));
+                                    return true;
+                                }
+                            }
+
+                            arrowNamesToEnable.add(arrow.getInternalName());
+
+                            if(sender instanceof Player) {
+                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-enable").replace("{displayname}", arrow.getDisplayName()));
+                                continue;
+                            } else {
+
+                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-enable").replace("{displayname}", arrow.getDisplayName()));
+                                continue;
+                            }
+                        }
+                    }
+
+                    for(String name: arrowNamesToEnable) {
+
+                        ArrowRegistry.getInstance().enableArrow(name);
+                        continue;
+                    }
+
                     return true;
                 }
             }
