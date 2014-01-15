@@ -61,4 +61,17 @@ public class PlayerTracker {
 
         playerArrowNamesMap.put(playerName, arrow.getInternalName());
     }
+
+    /**
+     * Returns a read-only version of player's arrow selections
+     * @return a read-only version of player's arrow selections
+     */
+    public Map<String, String> getPlayerArrowsNameList() {
+
+        Map<String, String> readOnlyMap = new HashMap<String, String>();
+
+        readOnlyMap.putAll(playerArrowNamesMap);
+
+        return readOnlyMap;
+    }
 }
