@@ -336,6 +336,84 @@ public class MainCmd implements CommandExecutor {
                 }
             }
 
+            if(args[0].equalsIgnoreCase("select")) {
+
+                if(!sender.hasPermission("arrowarsenal.commands.select")) {
+
+                    if(sender instanceof Player) {
+
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
+                        return true;
+                    } else {
+
+                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("no-permission"));
+                        return true;
+                    }
+                }
+
+                if(!(sender instanceof Player)) {
+
+                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("command-player-required"));
+                    return true;
+                }
+
+                if(args.length == 1) {
+
+                    if(ArrowRegistry.getInstance().getArrows().size() == 0) {
+
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                        return true;
+                    }
+
+                    if(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()) == null) {
+
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-selected"));
+                        return true;
+                    }
+
+                    for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+
+                        if(ArrowRegistry.getInstance().getArrows().get(id).getInternalName().equalsIgnoreCase(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()))) {
+
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrows().get(id).getDisplayName()));
+                            return true;
+                        }
+                    }
+
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-found"));
+                    return true;
+                }
+
+                if(args.length > 1) {
+
+                    if(ArrowRegistry.getInstance().getArrows().size() == 0) {
+
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                        return true;
+                    }
+
+                    for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+
+                        if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
+
+                            SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+
+                            if(arrow == null) {continue;}
+
+                            if(!ArrowRegistry.getInstance().getDisabledArrowNames().contains(arrow.getInternalName())) {
+
+                                PlayerTracker.getInstance().setCurrentArrow(sender.getName(), ArrowRegistry.getInstance().getArrows().get(id));
+                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrows().get(id).getDisplayName()));
+                                return true;
+                            }
+                        }
+                    }
+
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-found"));
+                    return true;
+                }
+            }
+
             if(sender instanceof Player) {
 
                 plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));

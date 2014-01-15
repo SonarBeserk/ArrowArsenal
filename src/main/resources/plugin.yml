@@ -15,6 +15,9 @@ permissions:
   arrowarsenal.commands.enable:
     description: allows use of the disable subcommand
     default: op
+  arrowarsenal.commands.select:
+    description: allows use of the select subcommand
+    default: op
 
 commands:
   arrowarsenal:
