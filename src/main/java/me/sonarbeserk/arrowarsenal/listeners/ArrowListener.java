@@ -76,7 +76,7 @@ public class ArrowListener implements Listener {
 
         if(e.getEntity() == null || e.getDamager() == null || !(e.getDamager().getType() == EntityType.ARROW)) {return;}
 
-        Arrow arrow = (Arrow) e.getEntity();
+        Arrow arrow = (Arrow) e.getDamager();
 
         if(arrow.hasMetadata("hit")) {return;}
 
