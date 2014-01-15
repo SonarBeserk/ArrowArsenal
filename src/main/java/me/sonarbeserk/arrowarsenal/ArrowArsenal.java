@@ -72,6 +72,7 @@ public class ArrowArsenal extends JavaPlugin {
     public void onDisable() {
 
         data.set("disabled-arrows", ArrowRegistry.getInstance().getDisabledArrowNames());
+        data.createSection("arrow-selections", PlayerTracker.getInstance().getPlayerArrowsNameList());
         data.save();
         data = null;
 

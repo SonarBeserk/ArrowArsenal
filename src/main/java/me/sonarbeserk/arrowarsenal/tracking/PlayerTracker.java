@@ -20,7 +20,7 @@ public class PlayerTracker {
         
         this.plugin = plugin;
 
-        playerArrowNamesMap = new HashMap<String, String>();
+        playerArrowNamesMap = (Map<String, String>) plugin.getData().getConfigurationSection("arrow-selections");
     }
 
     /**
