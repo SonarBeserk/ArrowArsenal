@@ -70,6 +70,26 @@ public class ArrowRegistry {
     }
 
     /**
+     * Returns the arrow with the internal name specified
+     * @param internalName the internal name of the arrow
+     * @return the arrow with the internal name specified
+     */
+    public SArrow getArrow(String internalName) {
+
+        if(arrows.size() == 0) {return null;}
+
+        for(int id: arrows.keySet()) {
+
+            if(arrows.get(id).getInternalName().equalsIgnoreCase(internalName)) {
+
+                return arrows.get(id);
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Returns a read-only list of disabled arrows
      * @return a read-only list of disabled arrows
      */
