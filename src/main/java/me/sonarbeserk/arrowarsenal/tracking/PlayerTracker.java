@@ -33,14 +33,6 @@ public class PlayerTracker {
     }
 
     /**
-     * Clears the instance of the registry, only used for cleanup purposes
-     */
-    public void clearInstance() {
-
-        instance = null;
-    }
-
-    /**
      * Returns the internal name of the currently selected player arrow
      * @param playerName the name of the player to return the arrow name of
      * @return the internal name of the currently selected player arrow

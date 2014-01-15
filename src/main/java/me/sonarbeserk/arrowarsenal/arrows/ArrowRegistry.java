@@ -47,14 +47,6 @@ public class ArrowRegistry {
     }
 
     /**
-     * Clears the instance of the registry, only used for cleanup purposes
-     */
-    public void clearInstance() {
-
-        instance = null;
-    }
-
-    /**
      * Returns a read-only list of registered arrows
      * @return a read-only list of registered arrows
      */
