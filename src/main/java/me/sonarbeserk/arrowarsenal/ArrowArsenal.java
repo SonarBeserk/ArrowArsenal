@@ -2,6 +2,7 @@ package me.sonarbeserk.arrowarsenal;
 
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
 import me.sonarbeserk.arrowarsenal.commands.MainCmd;
+import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
 import me.sonarbeserk.arrowarsenal.utils.Messaging;
 import me.sonarbeserk.arrowarsenal.utils.Data;
 import me.sonarbeserk.arrowarsenal.utils.Locale;
@@ -16,6 +17,8 @@ public class ArrowArsenal extends JavaPlugin {
     private Messaging utils = null;
 
     private ArrowRegistry registry = null;
+
+    private PlayerTracker tracker = null;
 
     public void onEnable() {
 
@@ -34,6 +37,8 @@ public class ArrowArsenal extends JavaPlugin {
         getCommand(getDescription().getName().toLowerCase()).setExecutor(new MainCmd(this));
 
         registry = new ArrowRegistry(this);
+
+        tracker = new PlayerTracker(this);
     }
 
 
@@ -70,8 +75,9 @@ public class ArrowArsenal extends JavaPlugin {
         data.save();
         data = null;
 
-        registry.clearInstance();
         registry = null;
+
+        tracker = null;
 
         utils = null;
 
