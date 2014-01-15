@@ -7,11 +7,12 @@ import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 
-public class ArrowListener {
+public class ArrowListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void launch(ProjectileLaunchEvent e) {
