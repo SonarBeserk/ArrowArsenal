@@ -12,7 +12,7 @@ public class PlayerTracker {
     
     private ArrowArsenal plugin = null;
 
-    private Map<String, String> playerArrowNamesList = null;
+    private Map<String, String> playerArrowNamesMap = null;
 
     public PlayerTracker(ArrowArsenal plugin) {
 
@@ -20,7 +20,7 @@ public class PlayerTracker {
         
         this.plugin = plugin;
 
-        playerArrowNamesList = new HashMap<String, String>();
+        playerArrowNamesMap = new HashMap<String, String>();
     }
 
     /**
@@ -39,11 +39,11 @@ public class PlayerTracker {
      */
     public String getCurrentArrowName(String playerName) {
 
-        for(String name: playerArrowNamesList.keySet()) {
+        for(String name: playerArrowNamesMap.keySet()) {
 
             if(name.equalsIgnoreCase(playerName)) {
 
-                return playerArrowNamesList.get(name);
+                return playerArrowNamesMap.get(name);
             }
         }
 
@@ -57,8 +57,8 @@ public class PlayerTracker {
      */
     public void setCurrentArrow(String playerName, SArrow arrow) {
 
-        if(playerArrowNamesList == null || ArrowRegistry.getInstance().getArrows() == null || ArrowRegistry.getInstance().getArrows().size() == 0) {return;}
+        if(playerArrowNamesMap == null || ArrowRegistry.getInstance().getArrows() == null || ArrowRegistry.getInstance().getArrows().size() == 0) {return;}
 
-        playerArrowNamesList.put(playerName, arrow.getInternalName());
+        playerArrowNamesMap.put(playerName, arrow.getInternalName());
     }
 }
