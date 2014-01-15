@@ -20,7 +20,14 @@ public class PlayerTracker {
         
         this.plugin = plugin;
 
-        playerArrowNamesMap = (Map<String, String>) plugin.getData().getConfigurationSection("arrow-selections").getKeys(false);
+        playerArrowNamesMap = new HashMap<String, String>();
+
+        Map<String, Object> persistedMap = plugin.getData().getConfigurationSection("arrow-selections").getValues(false);
+
+        for(String name: persistedMap.keySet()) {
+
+            playerArrowNamesMap.put(name, String.valueOf(persistedMap.get(name)));
+        }
     }
 
     /**
