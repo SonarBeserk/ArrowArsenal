@@ -78,7 +78,7 @@ public class ArrowListener implements Listener {
 
         Arrow arrow = (Arrow) e.getEntity();
 
-        if(arrow.hasMetadata("hitentity")) {return;}
+        if(arrow.hasMetadata("hit")) {return;}
 
         if(arrow.getShooter() == null || !(arrow.getShooter() instanceof Player)) {return;}
 
@@ -92,6 +92,6 @@ public class ArrowListener implements Listener {
 
         sArrow.hitEntity(e);
 
-        arrow.setMetadata("hitentity", new FixedMetadataValue(plugin, "true"));
+        arrow.setMetadata("hit", new FixedMetadataValue(plugin, "true"));
     }
 }
