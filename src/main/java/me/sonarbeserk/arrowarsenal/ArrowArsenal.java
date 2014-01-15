@@ -41,7 +41,7 @@ public class ArrowArsenal extends JavaPlugin {
 
         tracker = new PlayerTracker(this);
 
-        getServer().getPluginManager().registerEvents(new ArrowListener(), this);
+        getServer().getPluginManager().registerEvents(new ArrowListener(this), this);
     }
 
 

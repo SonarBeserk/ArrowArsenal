@@ -1,5 +1,6 @@
 package me.sonarbeserk.arrowarsenal.listeners;
 
+import me.sonarbeserk.arrowarsenal.ArrowArsenal;
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
 import me.sonarbeserk.arrowarsenal.arrows.SArrow;
 import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
@@ -11,8 +12,16 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
+import org.bukkit.metadata.FixedMetadataValue;
 
 public class ArrowListener implements Listener {
+
+    private ArrowArsenal plugin = null;
+
+    public ArrowListener(ArrowArsenal plugin) {
+
+        this.plugin = plugin;
+    }
 
     @EventHandler(ignoreCancelled = true)
     public void launch(ProjectileLaunchEvent e) {
@@ -20,6 +29,8 @@ public class ArrowListener implements Listener {
         if(e.getEntity() == null || !(e.getEntity().getType() == EntityType.ARROW)) {return;}
 
         Arrow arrow = (Arrow) e.getEntity();
+
+        if(arrow.hasMetadata("launched")) {return;}
 
         if(arrow.getShooter() == null || !(arrow.getShooter() instanceof Player)) {return;}
 
@@ -32,6 +43,8 @@ public class ArrowListener implements Listener {
         if(arrow == null) {return;}
 
         sArrow.launch(e);
+
+        arrow.setMetadata("launched", new FixedMetadataValue(plugin, "true"));
     }
 
     @EventHandler(ignoreCancelled = true)
@@ -40,6 +53,8 @@ public class ArrowListener implements Listener {
         if(e.getEntity() == null || !(e.getEntity().getType() == EntityType.ARROW)) {return;}
 
         Arrow arrow = (Arrow) e.getEntity();
+
+        if(arrow.hasMetadata("hit")) {return;}
 
         if(arrow.getShooter() == null || !(arrow.getShooter() instanceof Player)) {return;}
 
@@ -52,6 +67,8 @@ public class ArrowListener implements Listener {
         if(arrow == null) {return;}
 
         sArrow.hit(e);
+
+        arrow.setMetadata("hit", new FixedMetadataValue(plugin, "true"));
     }
 
     @EventHandler(ignoreCancelled = true)
@@ -60,6 +77,8 @@ public class ArrowListener implements Listener {
         if(e.getEntity() == null || e.getDamager() == null || !(e.getDamager().getType() == EntityType.ARROW)) {return;}
 
         Arrow arrow = (Arrow) e.getEntity();
+
+        if(arrow.hasMetadata("hitentity")) {return;}
 
         if(arrow.getShooter() == null || !(arrow.getShooter() instanceof Player)) {return;}
 
@@ -72,5 +91,7 @@ public class ArrowListener implements Listener {
         if(arrow == null) {return;}
 
         sArrow.hitEntity(e);
+
+        arrow.setMetadata("hitentity", new FixedMetadataValue(plugin, "true"));
     }
 }
