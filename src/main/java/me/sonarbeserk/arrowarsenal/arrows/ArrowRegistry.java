@@ -181,6 +181,8 @@ public class ArrowRegistry {
 
         disabledArrowNames.add(internalName);
 
+        getArrow(internalName).onDisable();
+
         plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-disabled").replace("{class}", arrows.getClass().getName()));
     }
 
@@ -195,6 +197,8 @@ public class ArrowRegistry {
         if(!disabledArrowNames.contains(internalName)) {return;}
 
         disabledArrowNames.remove(internalName);
+
+        getArrow(internalName).onEnable();
 
         plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-enabled").replace("{class}", arrows.getClass().getName()));
     }
