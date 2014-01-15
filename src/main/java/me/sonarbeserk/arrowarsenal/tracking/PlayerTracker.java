@@ -8,15 +8,36 @@ import java.util.Map;
 
 public class PlayerTracker {
 
+    private static PlayerTracker instance = null;
+    
     private ArrowArsenal plugin = null;
 
     private Map<String, String> playerArrowNamesList = null;
 
     public PlayerTracker(ArrowArsenal plugin) {
 
+        instance = this;
+        
         this.plugin = plugin;
 
         playerArrowNamesList = new HashMap<String, String>();
+    }
+
+    /**
+     * Returns the current instance of the PlayerTracker
+     * @return the current instance of the PlayerTracker
+     */
+    public static PlayerTracker getInstance() {
+
+        return instance;
+    }
+
+    /**
+     * Clears the instance of the registry, only used for cleanup purposes
+     */
+    public void clearInstance() {
+
+        instance = null;
     }
 
     /**
