@@ -22,7 +22,12 @@ public class PlayerTracker {
 
         playerArrowNamesMap = new HashMap<String, String>();
 
-        Map<String, Object> persistedMap = plugin.getData().getConfigurationSection("arrow-selections").getValues(false);
+        Map<String, Object> persistedMap = new HashMap<String, Object>();
+
+        if(plugin.getData().getConfigurationSection("arrow-selections") != null) {
+
+            persistedMap = plugin.getData().getConfigurationSection("arrow-selections").getValues(false);
+        }
 
         for(String name: persistedMap.keySet()) {
 
