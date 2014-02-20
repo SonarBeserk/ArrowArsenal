@@ -33,6 +33,12 @@ public abstract class SArrow {
     public abstract List<String> getAuthors();
 
     /**
+     * Returns the base permission required for the arrow
+     * @return the base permission required for the arrow
+     */
+    public abstract String getMainPermission();
+    
+    /**
      * Returns a map of the permissions, the order being permission node then reason for the permission
      * @return a map of the permissions, the order being permission node then reason for the permission
      */
