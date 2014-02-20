@@ -37,10 +37,10 @@ public abstract class SArrow {
      * @return the base permission required for the arrow
      */
     public abstract String getMainPermission();
-    
+
     /**
-     * Returns a map of the permissions, the order being permission node then reason for the permission
-     * @return a map of the permissions, the order being permission node then reason for the permission
+     * Returns a map of the permissions, the order being the permission node then the reason for the permission
+     * @return a map of the permissions, the order being the permission node then the reason for the permission
      */
     public abstract Map<String, String> getPermissions();
 
