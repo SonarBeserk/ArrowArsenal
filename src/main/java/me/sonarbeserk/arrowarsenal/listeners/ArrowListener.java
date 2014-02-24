@@ -30,9 +30,9 @@ public class ArrowListener implements Listener {
 
         Arrow arrow = (Arrow) e.getEntity();
 
-        if(arrow.hasMetadata("launched")) {return;}
-
         if(arrow.getShooter() == null || !(arrow.getShooter() instanceof Player)) {return;}
+
+        if(arrow.hasMetadata("launched")) {return;}
 
         Player shooter = (Player) arrow.getShooter();
 
@@ -54,9 +54,9 @@ public class ArrowListener implements Listener {
 
         Arrow arrow = (Arrow) e.getEntity();
 
-        if(arrow.hasMetadata("hit")) {return;}
-
         if(arrow.getShooter() == null || !(arrow.getShooter() instanceof Player)) {return;}
+
+        if(arrow.hasMetadata("hit")) {return;}
 
         Player shooter = (Player) arrow.getShooter();
 
@@ -78,9 +78,9 @@ public class ArrowListener implements Listener {
 
         Arrow arrow = (Arrow) e.getDamager();
 
-        if(arrow.hasMetadata("hit")) {return;}
-
         if(arrow.getShooter() == null || !(arrow.getShooter() instanceof Player)) {return;}
+
+        if(arrow.hasMetadata("hit")) {return;}
 
         Player shooter = (Player) arrow.getShooter();
 
