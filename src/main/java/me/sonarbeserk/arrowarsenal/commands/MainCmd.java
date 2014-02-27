@@ -3,6 +3,7 @@ package me.sonarbeserk.arrowarsenal.commands;
 import me.sonarbeserk.arrowarsenal.ArrowArsenal;
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
 import me.sonarbeserk.arrowarsenal.arrows.SArrow;
+import me.sonarbeserk.arrowarsenal.clicklisteners.ArrowSelectListener;
 import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
 import me.sonarbeserk.arrowarsenal.utils.PagedDoubleChestMenu;
 import org.bukkit.ChatColor;
@@ -362,54 +363,111 @@ public class MainCmd implements CommandExecutor {
                     return true;
                 }
 
-                if(args.length == 1) {
+                Player player = (Player) sender;
 
-                    if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
+                if(plugin.getConfig().getBoolean("settings.use-select-gui")) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
-                        return true;
+                    List<ItemStack> arrows = new ArrayList<ItemStack>();
+
+                    for(SArrow sArrow: ArrowRegistry.getInstance().getArrowsMap().values()) {
+
+                        ItemStack stack = new ItemStack(Material.ARROW);
+
+                        ItemMeta meta = stack.getItemMeta();
+
+                        List<String> lore = new ArrayList<String>();
+
+                        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', sArrow.getDisplayName()));
+
+                        lore.add("Description: " + sArrow.getDescription());
+
+                        if(sArrow.getCost() == 0) {
+
+                            lore.add("Cost: None");
+                        } else {
+
+                            lore.add("Cost: " + sArrow.getCost());
+                        }
+
+                        lore.add("Name ID: " + sArrow.getInternalName());
+
+                        meta.setLore(lore);
+
+                        stack.setItemMeta(meta);
+
+                        arrows.add(stack);
                     }
 
-                    if(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()) == null) {
+                    ItemStack nextPage = new ItemStack(Material.CACTUS);
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-selected"));
-                        return true;
-                    }
+                    ItemMeta meta = nextPage.getItemMeta();
 
-                    for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
+                    meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("settings.next-page-name")));
 
-                        if(ArrowRegistry.getInstance().getArrowsMap().get(id).getInternalName().equalsIgnoreCase(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()))) {
+                    nextPage.setItemMeta(meta);
 
-                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
+                    ItemStack prevPage = new ItemStack(Material.NETHER_BRICK);
+
+                    meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("settings.previous-page-name")));
+
+                    prevPage.setItemMeta(meta);
+
+                    PagedDoubleChestMenu menu = new PagedDoubleChestMenu(plugin, plugin.getConfig().getString("settings.arrow-select-menu-name"), arrows, nextPage, prevPage);
+
+                    menu.setClickListener(new ArrowSelectListener());
+
+                    menu.openInventory(player);
+                } else {
+
+                    if(args.length == 1) {
+
+                        if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
+
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
                             return true;
                         }
-                    }
 
-                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-found"));
-                    return true;
-                }
+                        if(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()) == null) {
 
-                if(args.length > 1) {
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-selected"));
+                            return true;
+                        }
 
-                    if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
+                        for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                            if(ArrowRegistry.getInstance().getArrowsMap().get(id).getInternalName().equalsIgnoreCase(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()))) {
+
+                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
+                                return true;
+                            }
+                        }
+
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-found"));
                         return true;
                     }
 
-                    for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
+                    if(args.length > 1) {
 
-                        if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
+                        if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
 
-                            SArrow arrow = ArrowRegistry.getInstance().getArrowsMap().get(id);
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                            return true;
+                        }
 
-                            if(arrow == null) {continue;}
+                        for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
 
-                            if(!ArrowRegistry.getInstance().getDisabledArrowNames().contains(arrow.getInternalName())) {
+                            if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
 
-                                PlayerTracker.getInstance().setCurrentArrow(sender.getName(), ArrowRegistry.getInstance().getArrowsMap().get(id));
-                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
-                                return true;
+                                SArrow arrow = ArrowRegistry.getInstance().getArrowsMap().get(id);
+
+                                if(arrow == null) {continue;}
+
+                                if(!ArrowRegistry.getInstance().getDisabledArrowNames().contains(arrow.getInternalName())) {
+
+                                    PlayerTracker.getInstance().setCurrentArrow(sender.getName(), ArrowRegistry.getInstance().getArrowsMap().get(id));
+                                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
+                                    return true;
+                                }
                             }
                         }
                     }
