@@ -40,7 +40,7 @@ public class ArrowListener implements Listener {
 
         SArrow sArrow = ArrowRegistry.getInstance().getArrow(PlayerTracker.getInstance().getCurrentArrowName(shooter.getName()));
 
-        if(arrow == null) {return;}
+        if(sArrow == null) {return;}
 
         sArrow.launch(e);
 
@@ -64,7 +64,7 @@ public class ArrowListener implements Listener {
 
         SArrow sArrow = ArrowRegistry.getInstance().getArrow(PlayerTracker.getInstance().getCurrentArrowName(shooter.getName()));
 
-        if(arrow == null) {return;}
+        if(sArrow == null) {return;}
 
         sArrow.hit(e);
 
@@ -88,7 +88,7 @@ public class ArrowListener implements Listener {
 
         SArrow sArrow = ArrowRegistry.getInstance().getArrow(PlayerTracker.getInstance().getCurrentArrowName(shooter.getName()));
 
-        if(arrow == null) {return;}
+        if(sArrow == null) {return;}
 
         sArrow.hitEntity(e);
 
