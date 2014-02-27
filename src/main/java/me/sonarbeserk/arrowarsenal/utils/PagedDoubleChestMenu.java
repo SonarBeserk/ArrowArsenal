@@ -18,6 +18,8 @@ public class PagedDoubleChestMenu implements Listener {
 
     private JavaPlugin plugin = null;
 
+    private Player player = null;
+
     private String name = null;
 
     private List<ItemStack> items = null;
@@ -34,12 +36,13 @@ public class PagedDoubleChestMenu implements Listener {
     /**
      * Creates a paged double chest menu
      * @param plugin the plugin creating this inventory
+     * @param player the player being shown the menu
      * @param name the name to display in the inventory
      * @param items the items to add
      * @param nextPage the itemstack to use for the next page button
      * @param prevPage the itemstack to use for the previous page button
      */
-    public PagedDoubleChestMenu(JavaPlugin plugin, String name, List<ItemStack> items, ItemStack nextPage, ItemStack prevPage) {
+    public PagedDoubleChestMenu(JavaPlugin plugin, Player player, String name, List<ItemStack> items, ItemStack nextPage, ItemStack prevPage) {
 
         this.plugin = plugin;
 
@@ -160,7 +163,7 @@ public class PagedDoubleChestMenu implements Listener {
      * Opens the inventory for the player
      * @param player the player to open the inventory for
      */
-    public void openInventory(Player player) {
+    public void openInventory() {
 
         if(pageMap == null || pageMap.size() == 0 || player == null) {return;}
 
@@ -232,6 +235,8 @@ public class PagedDoubleChestMenu implements Listener {
         }
 
         currentPage++;
+
+        openInventory();
     }
 
     /**
@@ -247,6 +252,8 @@ public class PagedDoubleChestMenu implements Listener {
         if(currentPage == 0) {return;}
 
         currentPage--;
+
+        openInventory();
     }
 
     /**

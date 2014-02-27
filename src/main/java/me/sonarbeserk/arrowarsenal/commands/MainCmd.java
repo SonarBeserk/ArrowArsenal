@@ -411,11 +411,11 @@ public class MainCmd implements CommandExecutor {
 
                     prevPage.setItemMeta(meta);
 
-                    PagedDoubleChestMenu menu = new PagedDoubleChestMenu(plugin, plugin.getConfig().getString("settings.arrow-select-menu-name"), arrows, nextPage, prevPage);
+                    PagedDoubleChestMenu menu = new PagedDoubleChestMenu(plugin, player, plugin.getConfig().getString("settings.arrow-select-menu-name"), arrows, nextPage, prevPage);
 
-                    menu.setClickListener(new ArrowSelectListener());
+                    menu.setClickListener(new ArrowSelectListener(plugin, menu));
 
-                    menu.openInventory(player);
+                    menu.openInventory();
                 } else {
 
                     if(args.length == 1) {
