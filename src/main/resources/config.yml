@@ -11,3 +11,6 @@ settings:
 
   # What prefix should be used for the plugin? | {name} is replaced with the plugin name
   prefix: "&f[&r&b{name}&r&f]"
+
+  # Should a special gui be used for arrow selection?
+  use-select-gui: true
