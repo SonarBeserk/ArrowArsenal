@@ -51,6 +51,21 @@ public class ArrowListener implements Listener {
             return;
         }
 
+        if(sArrow.getCost() > 0 && ArrowArsenal.economy != null) {
+
+            if(!arrow.hasMetadata("charged")) {
+
+                if(!ArrowArsenal.economy.has(shooter.getName(), sArrow.getCost())) {
+
+                    plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("arrow-can-not-afford"));
+                    return;
+                }
+
+                ArrowArsenal.economy.withdrawPlayer(shooter.getName(), sArrow.getCost());
+                arrow.setMetadata("charged", new FixedMetadataValue(plugin, "charged"));
+            }
+        }
+
         sArrow.launch(e);
 
         arrow.setMetadata("launched", new FixedMetadataValue(plugin, "true"));
@@ -84,6 +99,21 @@ public class ArrowListener implements Listener {
             return;
         }
 
+        if(sArrow.getCost() > 0 && ArrowArsenal.economy != null) {
+
+            if(!arrow.hasMetadata("charged")) {
+
+                if(!ArrowArsenal.economy.has(shooter.getName(), sArrow.getCost())) {
+
+                    plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("arrow-can-not-afford"));
+                    return;
+                }
+
+                ArrowArsenal.economy.withdrawPlayer(shooter.getName(), sArrow.getCost());
+                arrow.setMetadata("charged", new FixedMetadataValue(plugin, "charged"));
+            }
+        }
+
         sArrow.hit(e);
 
         arrow.setMetadata("hit", new FixedMetadataValue(plugin, "true"));
@@ -115,6 +145,21 @@ public class ArrowListener implements Listener {
             plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("no-permission"));
             arrow.setMetadata("warned", new FixedMetadataValue(plugin, "true"));
             return;
+        }
+
+        if(sArrow.getCost() > 0 && ArrowArsenal.economy != null) {
+
+            if(!arrow.hasMetadata("charged")) {
+
+                if(!ArrowArsenal.economy.has(shooter.getName(), sArrow.getCost())) {
+
+                    plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("arrow-can-not-afford"));
+                    return;
+                }
+
+                ArrowArsenal.economy.withdrawPlayer(shooter.getName(), sArrow.getCost());
+                arrow.setMetadata("charged", new FixedMetadataValue(plugin, "charged"));
+            }
         }
 
         sArrow.hitEntity(e);
