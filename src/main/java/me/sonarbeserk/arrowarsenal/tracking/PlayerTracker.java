@@ -69,7 +69,7 @@ public class PlayerTracker {
      */
     public void setCurrentArrow(String playerName, SArrow arrow) {
 
-        if(playerArrowNamesMap == null || ArrowRegistry.getInstance().getArrows() == null || ArrowRegistry.getInstance().getArrows().size() == 0) {return;}
+        if(playerArrowNamesMap == null || ArrowRegistry.getInstance().getArrowsMap() == null || ArrowRegistry.getInstance().getArrowsMap().size() == 0) {return;}
 
         playerArrowNamesMap.put(playerName, arrow.getInternalName());
     }
