@@ -42,6 +42,15 @@ public class ArrowListener implements Listener {
 
         if(sArrow == null) {return;}
 
+        if(sArrow.getMainPermission() == null) {return;}
+
+        if(!shooter.hasPermission(sArrow.getMainPermission()) && !arrow.hasMetadata("warned")) {
+
+            plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("no-permission"));
+            arrow.setMetadata("warned", new FixedMetadataValue(plugin, "true"));
+            return;
+        }
+
         sArrow.launch(e);
 
         arrow.setMetadata("launched", new FixedMetadataValue(plugin, "true"));
@@ -66,6 +75,15 @@ public class ArrowListener implements Listener {
 
         if(sArrow == null) {return;}
 
+        if(sArrow.getMainPermission() == null) {return;}
+
+        if(!shooter.hasPermission(sArrow.getMainPermission()) && !arrow.hasMetadata("warned")) {
+
+            plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("no-permission"));
+            arrow.setMetadata("warned", new FixedMetadataValue(plugin, "true"));
+            return;
+        }
+
         sArrow.hit(e);
 
         arrow.setMetadata("hit", new FixedMetadataValue(plugin, "true"));
@@ -89,6 +107,15 @@ public class ArrowListener implements Listener {
         SArrow sArrow = ArrowRegistry.getInstance().getArrow(PlayerTracker.getInstance().getCurrentArrowName(shooter.getName()));
 
         if(sArrow == null) {return;}
+
+        if(sArrow.getMainPermission() == null) {return;}
+
+        if(!shooter.hasPermission(sArrow.getMainPermission()) && !arrow.hasMetadata("warned")) {
+
+            plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("no-permission"));
+            arrow.setMetadata("warned", new FixedMetadataValue(plugin, "true"));
+            return;
+        }
 
         sArrow.hitEntity(e);
 
