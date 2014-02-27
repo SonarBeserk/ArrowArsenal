@@ -54,6 +54,15 @@ arrow-enabled: "&e{displayname}&r &4is already enabled!"
 # Message to send when an arrow is found | {displayname} - the user friendly name of the arrow
 arrow-current: "&7Current Arrow:&r &e{displayname}"
 
+# Message to send when Vault has been hooked
+hooked-vault: "Successfully hooked into Vault!"
+
+# Warning message to send when Vault is not found
+warning-vault-not-found: "Vault was not found or was not enabled. Arrow costs will not work properly."
+
+# Warning message to send when no economy plugin is found when hooking vault
+warning-no-economy-found: "No economy plugin was found after hooking vault. Cost based arrows may not be used."
+
 # Severe message to send when an arrow without a display name is trying to be registered | {name} - the name of the class
 severe-no-displayname: "{class} tried to register arrow with no display name"
 
