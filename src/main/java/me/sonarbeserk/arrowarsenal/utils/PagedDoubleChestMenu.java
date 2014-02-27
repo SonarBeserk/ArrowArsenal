@@ -59,7 +59,7 @@ public class PagedDoubleChestMenu implements Listener {
 
         pageMap = new HashMap<Integer, Inventory>();
 
-        if(items.size() == 54) {
+        if(items.size() <= 54) {
 
             Inventory inventory = plugin.getServer().createInventory(null, 54, name);
 
