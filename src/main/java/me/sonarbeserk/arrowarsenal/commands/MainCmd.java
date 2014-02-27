@@ -362,6 +362,12 @@ public class MainCmd implements CommandExecutor {
                     return true;
                 }
 
+                if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
+
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                    return true;
+                }
+
                 Player player = (Player) sender;
 
                 if(plugin.getConfig().getBoolean("settings.use-select-gui")) {
@@ -419,12 +425,6 @@ public class MainCmd implements CommandExecutor {
                 } else {
 
                     if(args.length == 1) {
-
-                        if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
-
-                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
-                            return true;
-                        }
 
                         if(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()) == null) {
 
