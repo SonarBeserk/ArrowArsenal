@@ -14,3 +14,6 @@ settings:
 
   # Should a special gui be used for arrow selection?
   use-select-gui: true
+
+  # What name should be used for the arrow selection menu?
+  arrow-select-menu-name: "Arrow Select"
