@@ -17,3 +17,9 @@ settings:
 
   # What name should be used for the arrow selection menu?
   arrow-select-menu-name: "Arrow Select"
+
+  # What name should be displayed on the button for the next page in the arrow select menu?
+  next-page-name: "&2Next Page"
+
+    # What name should be displayed on the button for the previous page in the arrow select menu?
+  previous-page-name: "&4Previous Page"
