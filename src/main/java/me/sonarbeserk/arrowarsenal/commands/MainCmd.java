@@ -4,10 +4,16 @@ import me.sonarbeserk.arrowarsenal.ArrowArsenal;
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
 import me.sonarbeserk.arrowarsenal.arrows.SArrow;
 import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
+import me.sonarbeserk.arrowarsenal.utils.PagedDoubleChestMenu;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,7 +88,7 @@ public class MainCmd implements CommandExecutor {
 
             if(args[0].equalsIgnoreCase("list")) {
 
-                if(ArrowRegistry.getInstance().getArrows().size() == 0) {
+                if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
 
                     if(sender instanceof Player) {
 
@@ -95,9 +101,9 @@ public class MainCmd implements CommandExecutor {
                     }
                 }
 
-                for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+                for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
 
-                    SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+                    SArrow arrow = ArrowRegistry.getInstance().getArrowsMap().get(id);
 
                     if(arrow == null) {continue;}
 
@@ -144,11 +150,11 @@ public class MainCmd implements CommandExecutor {
                     }
                 }
 
-                for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+                for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
 
                     if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
 
-                        SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+                        SArrow arrow = ArrowRegistry.getInstance().getArrowsMap().get(id);
                         
                         if(sender instanceof Player) {
 
@@ -226,11 +232,11 @@ public class MainCmd implements CommandExecutor {
 
                     List<String> arrowNamesToDisable = new ArrayList<String>();
 
-                    for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+                    for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
 
                         if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
 
-                            SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+                            SArrow arrow = ArrowRegistry.getInstance().getArrowsMap().get(id);
 
                             if(arrow == null) {continue;}
 
@@ -290,11 +296,11 @@ public class MainCmd implements CommandExecutor {
 
                     List<String> arrowNamesToEnable = new ArrayList<String>();
 
-                    for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+                    for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
 
                         if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
 
-                            SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+                            SArrow arrow = ArrowRegistry.getInstance().getArrowsMap().get(id);
 
                             if(arrow == null) {continue;}
 
@@ -358,7 +364,7 @@ public class MainCmd implements CommandExecutor {
 
                 if(args.length == 1) {
 
-                    if(ArrowRegistry.getInstance().getArrows().size() == 0) {
+                    if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
 
                         plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
                         return true;
@@ -370,11 +376,11 @@ public class MainCmd implements CommandExecutor {
                         return true;
                     }
 
-                    for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+                    for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
 
-                        if(ArrowRegistry.getInstance().getArrows().get(id).getInternalName().equalsIgnoreCase(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()))) {
+                        if(ArrowRegistry.getInstance().getArrowsMap().get(id).getInternalName().equalsIgnoreCase(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()))) {
 
-                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrows().get(id).getDisplayName()));
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
                             return true;
                         }
                     }
@@ -385,24 +391,24 @@ public class MainCmd implements CommandExecutor {
 
                 if(args.length > 1) {
 
-                    if(ArrowRegistry.getInstance().getArrows().size() == 0) {
+                    if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
 
                         plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
                         return true;
                     }
 
-                    for(int id: ArrowRegistry.getInstance().getArrows().keySet()) {
+                    for(int id: ArrowRegistry.getInstance().getArrowsMap().keySet()) {
 
                         if(id == Integer.parseInt(args[1].replaceAll("[a-zA-Z]", ""))) {
 
-                            SArrow arrow = ArrowRegistry.getInstance().getArrows().get(id);
+                            SArrow arrow = ArrowRegistry.getInstance().getArrowsMap().get(id);
 
                             if(arrow == null) {continue;}
 
                             if(!ArrowRegistry.getInstance().getDisabledArrowNames().contains(arrow.getInternalName())) {
 
-                                PlayerTracker.getInstance().setCurrentArrow(sender.getName(), ArrowRegistry.getInstance().getArrows().get(id));
-                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrows().get(id).getDisplayName()));
+                                PlayerTracker.getInstance().setCurrentArrow(sender.getName(), ArrowRegistry.getInstance().getArrowsMap().get(id));
+                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
                                 return true;
                             }
                         }

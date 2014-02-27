@@ -47,10 +47,10 @@ public class ArrowRegistry {
     }
 
     /**
-     * Returns a read-only list of registered arrows
-     * @return a read-only list of registered arrows
+     * Returns a read-only map of registered arrows
+     * @return a read-only map of registered arrows
      */
-    public Map<Integer, SArrow> getArrows() {
+    public Map<Integer, SArrow> getArrowsMap() {
 
         if(arrows == null) {return null;}
 
