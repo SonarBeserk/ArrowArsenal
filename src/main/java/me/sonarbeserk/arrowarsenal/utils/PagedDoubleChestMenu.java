@@ -250,6 +250,15 @@ public class PagedDoubleChestMenu implements Listener {
     }
 
     /**
+     * Returns the current page the menu is on
+     * @return the current page the menu is on
+     */
+    public int getCurrentPage() {
+
+        return currentPage;
+    }
+
+    /**
      * Returns a list of the inventorys of the pages
      * @return a list of the inventorys of the pages
      */
