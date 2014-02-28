@@ -3,6 +3,7 @@ package me.sonarbeserk.arrowarsenal.listeners;
 import me.sonarbeserk.arrowarsenal.ArrowArsenal;
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
 import me.sonarbeserk.arrowarsenal.arrows.SArrow;
+import me.sonarbeserk.arrowarsenal.enums.ArrowState;
 import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
@@ -51,7 +52,11 @@ public class ArrowListener implements Listener {
             return;
         }
 
-        if(sArrow.getCost() > 0 && ArrowArsenal.economy != null) {
+        sArrow.launch(e);
+
+        if(sArrow.getState() == null || sArrow.getState() == ArrowState.FAILED || sArrow.getState() == ArrowState.PROGRESSING) {return;}
+
+        if(sArrow.getState() == ArrowState.SUCCEEDED && sArrow.getCost() > 0 && ArrowArsenal.economy != null) {
 
             if(!arrow.hasMetadata("charged")) {
 
@@ -65,8 +70,6 @@ public class ArrowListener implements Listener {
                 arrow.setMetadata("charged", new FixedMetadataValue(plugin, "charged"));
             }
         }
-
-        sArrow.launch(e);
 
         arrow.setMetadata("launched", new FixedMetadataValue(plugin, "true"));
     }
@@ -99,7 +102,11 @@ public class ArrowListener implements Listener {
             return;
         }
 
-        if(sArrow.getCost() > 0 && ArrowArsenal.economy != null) {
+        sArrow.hit(e);
+
+        if(sArrow.getState() == null || sArrow.getState() == ArrowState.FAILED || sArrow.getState() == ArrowState.PROGRESSING) {return;}
+
+        if(sArrow.getState() == ArrowState.SUCCEEDED && sArrow.getCost() > 0 && ArrowArsenal.economy != null) {
 
             if(!arrow.hasMetadata("charged")) {
 
@@ -113,8 +120,6 @@ public class ArrowListener implements Listener {
                 arrow.setMetadata("charged", new FixedMetadataValue(plugin, "charged"));
             }
         }
-
-        sArrow.hit(e);
 
         arrow.setMetadata("hit", new FixedMetadataValue(plugin, "true"));
     }
@@ -147,7 +152,11 @@ public class ArrowListener implements Listener {
             return;
         }
 
-        if(sArrow.getCost() > 0 && ArrowArsenal.economy != null) {
+        sArrow.hitEntity(e);
+
+        if(sArrow.getState() == null || sArrow.getState() == ArrowState.FAILED || sArrow.getState() == ArrowState.PROGRESSING) {return;}
+
+        if(sArrow.getState() == ArrowState.SUCCEEDED && sArrow.getCost() > 0 && ArrowArsenal.economy != null) {
 
             if(!arrow.hasMetadata("charged")) {
 
@@ -161,8 +170,6 @@ public class ArrowListener implements Listener {
                 arrow.setMetadata("charged", new FixedMetadataValue(plugin, "charged"));
             }
         }
-
-        sArrow.hitEntity(e);
 
         arrow.setMetadata("hit", new FixedMetadataValue(plugin, "true"));
     }
