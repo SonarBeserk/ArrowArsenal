@@ -14,6 +14,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Inspired by the menus in GuestCraft http://dev.bukkit.org/bukkit-plugins/guestcraft/
+ */
 public class PagedDoubleChestMenu implements Listener {
 
     private JavaPlugin plugin = null;
