@@ -27,6 +27,9 @@ arrow-info-no-buy: "&7Name:&r &e{displayname}&r &7by&r &e{authors}&r &7Descripti
 # Message to send when listing permission info about an arrow | {permission} - the permission node | {description} -  the reason for the node
 arrow-info-permission: "&7Permission:&r &e{permission}&r &7Description:&r &e{description}&r"
 
+# Message to send when listing the main permission for an arrow | {mainpermission} - the main permission for the arrow
+arrow-info-main-permission: "&4Permission:&r &e{mainpermission}&r &7- Main permission for the arrow&r"
+
 # Message to send when giving arrow info and there was no arrow found for the specified id
 arrow-not-found: "&4No arrow with that id was found! Please use /aa list to find the arrow id."
 

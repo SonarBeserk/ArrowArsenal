@@ -160,11 +160,15 @@ public class MainCmd implements CommandExecutor {
 
                             if(arrow.canBuy()) {
 
-                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                                plugin.getMessaging().sendMessage(sender, false,  true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             } else {
 
-                                plugin.getMessaging().sendMessage(sender, true,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                                plugin.getMessaging().sendMessage(sender, false,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             }
+
+                            if(arrow.getMainPermission() == null) {continue;}
+
+                            plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info-main-permission").replace("{mainpermission}", arrow.getMainPermission()));
 
                             if(arrow.getPermissions() == null || arrow.getPermissions().size() == 0) {continue;}
 
@@ -186,6 +190,10 @@ public class MainCmd implements CommandExecutor {
 
                                 plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             }
+
+                            if(arrow.getMainPermission() == null) {continue;}
+
+                            plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-info-main-permission").replace("{mainpermission}", arrow.getMainPermission()));
 
                             if(arrow.getPermissions() == null || arrow.getPermissions().size() == 0) {continue;}
                             
