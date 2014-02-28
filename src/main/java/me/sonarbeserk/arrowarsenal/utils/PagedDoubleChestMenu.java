@@ -163,8 +163,7 @@ public class PagedDoubleChestMenu implements Listener {
     }
 
     /**
-     * Opens the inventory for the player
-     * @param player the player to open the inventory for
+     * Opens the inventory for the menu's player
      */
     public void openInventory() {
 
