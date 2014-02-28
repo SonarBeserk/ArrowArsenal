@@ -1,5 +1,6 @@
 package me.sonarbeserk.arrowarsenal.arrows;
 
+import me.sonarbeserk.arrowarsenal.enums.ArrowState;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
@@ -55,6 +56,12 @@ public abstract class SArrow {
      * @return the cost to buy the arrow if it can be bought
      */
     public abstract int getCost();
+
+    /**
+     * Returns the current arrow state
+     * @return the current arrow state
+     */
+    public abstract ArrowState getState();
 
     /**
      * Called when an arrow is launched
