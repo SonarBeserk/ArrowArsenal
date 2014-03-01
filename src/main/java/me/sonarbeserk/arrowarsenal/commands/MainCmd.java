@@ -33,11 +33,11 @@ public class MainCmd implements CommandExecutor {
 
             if(sender instanceof Player) {
 
-                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal"));
+                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             } else {
 
-                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("usage-arrowarsenal"));
+                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             }
         }
@@ -48,11 +48,11 @@ public class MainCmd implements CommandExecutor {
 
                 if(sender instanceof Player) {
 
-                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal"));
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                     return true;
                 } else {
 
-                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("usage-arrowarsenal"));
+                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                     return true;
                 }
             }

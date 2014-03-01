@@ -9,7 +9,7 @@ reloaded: "&7The configuration has been reloaded!"
 # Sent when a player is required for a command
 command-player-required: "You must be a player to use this command!"
 
-# Usage for the arrowarsenal master command
+# Usage for the arrowarsenal master command | {name} - the name of the plugin
 usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files \n list - lists all arrows, lists id, name and if the arrow is enabled \n info (id) - lists full information about the arrow connected to the id, Lists name, description and authors \n disable (id) - disables the arrow connected to the id \n enable (id) - enables the arrow connected to the id \n select (id) - selects the arrow you wish to use (requires an id if the gui menu is off)"
 
 # Message to use when listing arrows | {id} - the id of the arrow in the registry (used for lookups) | {displayname} -  the user friendly name of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled | {cost} - the cost of the arrow
