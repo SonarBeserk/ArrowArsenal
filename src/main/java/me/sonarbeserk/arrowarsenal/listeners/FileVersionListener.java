@@ -4,10 +4,11 @@ import me.sonarbeserk.arrowarsenal.ArrowArsenal;
 import me.sonarbeserk.arrowarsenal.utils.LatestVersionsFile;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.event.server.PluginEnableEvent;
 
-public class FileVersionListener {
+public class FileVersionListener implements Listener {
 
     private ArrowArsenal plugin = null;
 

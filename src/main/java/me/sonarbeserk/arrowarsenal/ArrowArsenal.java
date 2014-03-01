@@ -3,6 +3,7 @@ package me.sonarbeserk.arrowarsenal;
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
 import me.sonarbeserk.arrowarsenal.commands.MainCmd;
 import me.sonarbeserk.arrowarsenal.listeners.ArrowListener;
+import me.sonarbeserk.arrowarsenal.listeners.FileVersionListener;
 import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
 import me.sonarbeserk.arrowarsenal.utils.Messaging;
 import me.sonarbeserk.arrowarsenal.utils.Data;
@@ -45,6 +46,8 @@ public class ArrowArsenal extends JavaPlugin {
         tracker = new PlayerTracker(this);
 
         getServer().getPluginManager().registerEvents(new ArrowListener(this), this);
+
+        getServer().getPluginManager().registerEvents(new FileVersionListener(this), this);
 
         if(getServer().getPluginManager().getPlugin("Vault") != null && getServer().getPluginManager().getPlugin("Vault").isEnabled()) {
 
