@@ -40,10 +40,10 @@ public abstract class SArrow {
     public abstract String getMainPermission();
 
     /**
-     * Returns a map of the permissions, the order being the permission node then the reason for the permission
-     * @return a map of the permissions, the order being the permission node then the reason for the permission
+     * Returns a map of the extra permissions, the order being the permission node then the reason for the permission
+     * @return a map of the extra permissions, the order being the permission node then the reason for the permission
      */
-    public abstract Map<String, String> getPermissions();
+    public abstract Map<String, String> getExtraPermissions();
 
     /**
      * Returns if the arrow is possible to be bought with currency
