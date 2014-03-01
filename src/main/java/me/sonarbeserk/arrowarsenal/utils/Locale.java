@@ -10,10 +10,10 @@ import java.util.logging.Level;
 
 public class Locale {
 
+    private JavaPlugin plugin = null;
+
     private FileConfiguration locale = null;
     private File localeFile = null;
-
-    private JavaPlugin plugin;
 
     public Locale(JavaPlugin plugin) {
 

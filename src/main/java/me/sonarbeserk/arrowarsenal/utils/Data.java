@@ -11,10 +11,11 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Data {
-	
+
+    private JavaPlugin plugin = null;
+
 	private FileConfiguration data = null;
 	private File dataFile = null;
-	private JavaPlugin plugin = null;
 	
 	public Data(JavaPlugin plugin) {
 		
@@ -27,11 +28,6 @@ public class Data {
      * Reloads the data file
      */
 	public void reload() {
-		
-		if(plugin.getConfig() == null) {
-			
-			plugin.reloadConfig();
-		}
 
         saveDefault();
 
@@ -69,11 +65,6 @@ public class Data {
      * Saves the default version of the data file if it was not found
      */
 	private void saveDefault() {
-		
-		if(plugin.getConfig() == null) {
-			
-			plugin.reloadConfig();
-		}
 		
 		if(dataFile == null) {
 			
