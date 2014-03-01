@@ -66,6 +66,12 @@ arrow-can-not-afford: "&4You can not afford to use this arrow!"
 # Message to send when Vault has been hooked
 hooked-vault: "Successfully hooked into Vault!"
 
+# Message to send when the config file being run is out of date
+out-of-date-config: "&4The version of the config file being run is out of date! Please delete the file and reload the plugin to generate the new version! (Backup the old version first!)"
+
+# Message to send when the locale file being run is out of date
+out-of-date-locale: "&4The version of the locale file being run is out of date! Please delete the file and reload the plugin to generate the new version! (Backup the old version first!)
+
 # Warning message to send when Vault is not found
 warning-vault-not-found: "Vault was not found or was not enabled. Arrow costs will not work properly."
 

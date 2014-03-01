@@ -6,6 +6,9 @@ author: SonarBeserk
 main: me.sonarbeserk.arrowarsenal.ArrowArsenal
 
 permissions:
+  arrowarsenal.notify.files:
+    description: notifies players with this permission of files being out of date
+    default: op
   arrowarsenal.commands.reload:
     description: allows use of the reload subcommand
     default: op
