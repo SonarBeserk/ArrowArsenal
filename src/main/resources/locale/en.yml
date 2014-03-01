@@ -12,8 +12,12 @@ reloaded: "&7The configuration has been reloaded!"
 # Sent when a player is required for a command
 command-player-required: "You must be a player to use this command!"
 
+# Usage
+
 # Usage for the arrowarsenal master command | {name} - the name of the plugin
 usage-arrowarsenal: "&7Subcommands: \n reload - reloads the all the plugin's files \n list - lists all arrows, lists id, name and if the arrow is enabled \n info (id) - lists full information about the arrow connected to the id, Lists name, description and authors \n disable (id) - disables the arrow connected to the id \n enable (id) - enables the arrow connected to the id \n select (id) - selects the arrow you wish to use (requires an id if the gui menu is off)"
+
+# Commands
 
 # Message to use when listing arrows | {id} - the id of the arrow in the registry (used for lookups) | {displayname} -  the user friendly name of the arrow | {enabled} - true if the arrow is not disabled, false if it is disabled | {cost} - the cost of the arrow
 arrow-list: "&7ID:&r &e{id}&r &7Name:&r &e{displayname}&r &7Enabled:&r &e{enabled}&r"
@@ -63,8 +67,12 @@ arrow-current: "&7Current Arrow:&r &e{displayname}"
 # Message to send when a player can not afford to use an arrow
 arrow-can-not-afford: "&4You can not afford to use this arrow!"
 
+# Hooking
+
 # Message to send when Vault has been hooked
 hooked-vault: "Successfully hooked into Vault!"
+
+# Out of date
 
 # Message to send when the config file being run is out of date
 out-of-date-config: "&4The version of the config file being run is out of date! Please delete the file and reload the plugin to generate the new version! (Backup the old version first!)"
@@ -72,17 +80,23 @@ out-of-date-config: "&4The version of the config file being run is out of date! 
 # Message to send when the locale file being run is out of date
 out-of-date-locale: "&4The version of the locale file being run is out of date! Please delete the file and reload the plugin to generate the new version! (Backup the old version first!)
 
+# Warning
+
 # Warning message to send when Vault is not found
 warning-vault-not-found: "Vault was not found or was not enabled. Arrow costs will not work properly."
 
 # Warning message to send when no economy plugin is found when hooking vault
 warning-no-economy-found: "No economy plugin was found after hooking vault. Cost based arrows may not be used."
 
+# Severe
+
 # Severe message to send when an arrow without a display name is trying to be registered | {name} - the name of the class
 severe-no-displayname: "{class} tried to register arrow with no display name"
 
 # Severe message to send when an arrow without a internal name is trying to be registered | {name} - the name of the class
 severe-no-internalname: "{class} tried to register arrow with no internal name"
+
+# Debug
 
 # Debug message to send when an arrow is added to the arrow registry | {displayname} the display name of the arrow | {internalname} - the internal name of the arrow | {authors} - the authors of the plugin | {description} - the description of the arrow
 debug-arrow-added: "Arrow with the display name: {displayname} internal name: {internalname} by {authors} with the description {description} was added to the arrow registry"
