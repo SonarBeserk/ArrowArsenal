@@ -48,7 +48,7 @@ public class ExampleArrow extends SArrow {
 
         Map<String, String> perms = new HashMap<String, String>();
 
-        perms.put("arrow.example.exampleperm", "Example permission listing for player use");
+        perms.put("arrowarsenal.arrow.example.exampleperm", "Example permission listing for player use");
 
         return perms;
     }
