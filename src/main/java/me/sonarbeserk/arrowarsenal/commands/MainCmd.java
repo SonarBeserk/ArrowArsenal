@@ -170,13 +170,13 @@ public class MainCmd implements CommandExecutor {
 
                             plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info-main-permission").replace("{mainpermission}", arrow.getMainPermission()));
 
-                            if(arrow.getPermissions() == null || arrow.getPermissions().size() == 0) {continue;}
+                            if(arrow.getExtraPermissions() == null || arrow.getExtraPermissions().size() == 0) {continue;}
 
-                            for(String node: arrow.getPermissions().keySet()){
+                            for(String node: arrow.getExtraPermissions().keySet()){
 
-                                if(arrow.getPermissions().get(node) == null) {continue;}
+                                if(arrow.getExtraPermissions().get(node) == null) {continue;}
 
-                                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getPermissions().get(node)));
+                                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getExtraPermissions().get(node)));
                                 continue;
                             }
 
@@ -195,13 +195,13 @@ public class MainCmd implements CommandExecutor {
 
                             plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-info-main-permission").replace("{mainpermission}", arrow.getMainPermission()));
 
-                            if(arrow.getPermissions() == null || arrow.getPermissions().size() == 0) {continue;}
+                            if(arrow.getExtraPermissions() == null || arrow.getExtraPermissions().size() == 0) {continue;}
                             
-                            for(String node: arrow.getPermissions().keySet()){
+                            for(String node: arrow.getExtraPermissions().keySet()){
 
-                                if(arrow.getPermissions().get(node) == null) {continue;}
+                                if(arrow.getExtraPermissions().get(node) == null) {continue;}
 
-                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getPermissions().get(node)));
+                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getExtraPermissions().get(node)));
                                 continue;
                             }
 

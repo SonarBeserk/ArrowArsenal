@@ -44,7 +44,7 @@ public class ExampleArrow extends SArrow {
     }
 
     @Override
-    public Map<String, String> getPermissions() {
+    public Map<String, String> getExtraPermissions() {
 
         Map<String, String> perms = new HashMap<String, String>();
 
