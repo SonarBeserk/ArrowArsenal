@@ -20,7 +20,7 @@ public class ArrowArsenal extends JavaPlugin {
 
     private Data data = null;
 
-    private Messaging utils = null;
+    private Messaging messaging = null;
 
     private ArrowRegistry registry = null;
 
@@ -38,7 +38,7 @@ public class ArrowArsenal extends JavaPlugin {
 
         if(!getServer().getPluginManager().isPluginEnabled(this)) {return;}
 
-        utils = new Messaging(this);
+        messaging = new Messaging(this);
 
         getCommand(getDescription().getName().toLowerCase()).setExecutor(new MainCmd(this));
 
@@ -100,7 +100,7 @@ public class ArrowArsenal extends JavaPlugin {
      */
     public Messaging getMessaging() {
 
-    return utils;
+        return messaging;
     }
 
     public void onDisable() {
@@ -114,7 +114,7 @@ public class ArrowArsenal extends JavaPlugin {
 
         tracker = null;
 
-        utils = null;
+        messaging = null;
 
         locale = null;
     }
