@@ -139,6 +139,8 @@ public class ArrowListener implements Listener {
 
         if(shooter == null || PlayerTracker.getInstance().getCurrentArrowName(shooter.getName()) == null) {return;}
 
+        if(shooter.equals(e.getEntity())) {return;}
+
         SArrow sArrow = ArrowRegistry.getInstance().getArrow(PlayerTracker.getInstance().getCurrentArrowName(shooter.getName()));
 
         if(sArrow == null) {return;}
