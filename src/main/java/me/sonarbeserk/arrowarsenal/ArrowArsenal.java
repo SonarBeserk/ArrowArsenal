@@ -36,8 +36,6 @@ public class ArrowArsenal extends JavaPlugin {
 
         data = new Data(this);
 
-        if(!getServer().getPluginManager().isPluginEnabled(this)) {return;}
-
         messaging = new Messaging(this);
 
         getCommand(getDescription().getName().toLowerCase()).setExecutor(new MainCmd(this));
@@ -102,6 +100,8 @@ public class ArrowArsenal extends JavaPlugin {
 
         return messaging;
     }
+
+
 
     public void onDisable() {
 
