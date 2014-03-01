@@ -1,5 +1,8 @@
 # English Locale
 
+# Version
+version: 1.0
+
 # Sent when a sender lacks permission to do something
 no-permission: "&4You do not have permission to do that!"
 
