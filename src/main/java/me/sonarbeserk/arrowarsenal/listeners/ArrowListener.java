@@ -52,6 +52,8 @@ public class ArrowListener implements Listener {
             return;
         }
 
+        arrow.setMetadata("shooter", new FixedMetadataValue(plugin, shooter.getName()));
+
         sArrow.launch(e);
 
         if(sArrow.getState() == null || sArrow.getState() == ArrowState.FAILED || sArrow.getState() == ArrowState.PROGRESSING) {return;}
@@ -101,6 +103,8 @@ public class ArrowListener implements Listener {
             arrow.setMetadata("warned", new FixedMetadataValue(plugin, "true"));
             return;
         }
+
+        arrow.setMetadata("shooter", new FixedMetadataValue(plugin, shooter.getName()));
 
         sArrow.hit(e);
 
@@ -153,6 +157,8 @@ public class ArrowListener implements Listener {
             arrow.setMetadata("warned", new FixedMetadataValue(plugin, "true"));
             return;
         }
+
+        arrow.setMetadata("shooter", new FixedMetadataValue(plugin, shooter.getName()));
 
         sArrow.hitEntity(e);
 
