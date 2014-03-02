@@ -1,7 +1,7 @@
 # English Locale
 
 # Version
-version: 1.0
+version: "1.0"
 
 # Sent when a sender lacks permission to do something
 no-permission: "&4You do not have permission to do that!"
@@ -78,7 +78,7 @@ hooked-vault: "Successfully hooked into Vault!"
 out-of-date-config: "&4The version of the config file being run is out of date! Please delete the file and reload the plugin to generate the new version! (Backup the old version first!)"
 
 # Message to send when the locale file being run is out of date
-out-of-date-locale: "&4The version of the locale file being run is out of date! Please delete the file and reload the plugin to generate the new version! (Backup the old version first!)
+out-of-date-locale: "&4The version of the locale file being run is out of date! Please delete the file and reload the plugin to generate the new version! (Backup the old version first!)"
 
 # Warning
 
