@@ -31,12 +31,12 @@ public class FileVersionListener implements Listener {
         boolean configOutOfDate = false;
         boolean localeOutOfDate = false;
 
-        if((Double) latestVersionsFile.get("config") > plugin.getConfig().getDouble("version")) {
+        if(Double.parseDouble((String) latestVersionsFile.get("config")) > plugin.getConfig().getDouble("version")) {
 
             configOutOfDate = true;
         }
 
-        if((Double) latestVersionsFile.get("locale") > Double.parseDouble(plugin.getLocale().getMessage("version"))) {
+        if(Double.parseDouble((String) latestVersionsFile.get("locale")) > Double.parseDouble(plugin.getLocale().getMessage("version"))) {
 
             localeOutOfDate = true;
         }

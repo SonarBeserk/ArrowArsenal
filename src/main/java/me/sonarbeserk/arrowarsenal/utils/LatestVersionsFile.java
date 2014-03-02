@@ -24,14 +24,12 @@ public class LatestVersionsFile {
      */
 	public void reload() {
 		
-		versions = YamlConfiguration.loadConfiguration(versionsFile);
-		
 		InputStream defConfigStream = plugin.getResource("latest-versions.yml");
 		
 		if(defConfigStream != null) {
 			
 			YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
-			versions.setDefaults(defConfig);
+			versions = defConfig;
 		} else {
 			
 			plugin.getLogger().severe("Unable to load version data.");
