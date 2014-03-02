@@ -24,11 +24,6 @@ public class LatestVersionsFile {
      */
 	public void reload() {
 		
-		if(plugin.getConfig() == null) {
-			
-			plugin.reloadConfig();
-		}
-		
 		versions = YamlConfiguration.loadConfiguration(versionsFile);
 		
 		InputStream defConfigStream = plugin.getResource("latest-versions.yml");
