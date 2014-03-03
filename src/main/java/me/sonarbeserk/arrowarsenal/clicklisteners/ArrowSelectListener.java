@@ -48,6 +48,7 @@ public class ArrowSelectListener extends ClickListener {
 
         if(menu.getCurrentPage() == 0 && menu.getInventorys().size() > 1) {
 
+            // next button
             if(e.getSlot() == 53) {
 
                 menu.nextPage();
@@ -80,12 +81,14 @@ public class ArrowSelectListener extends ClickListener {
 
         if(menu.getCurrentPage() > 0 && menu.getInventorys().size() > 1) {
 
+            //previous button
             if(e.getSlot() == 0) {
 
                 menu.prevPage();
                 return;
             }
 
+            //next button
             if(e.getSlot() == 53) {
 
                 menu.nextPage();
