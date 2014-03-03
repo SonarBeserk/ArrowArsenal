@@ -49,6 +49,8 @@ public class PagedDoubleChestMenu implements Listener {
 
         this.plugin = plugin;
 
+        this.player = player;
+
         this.name = name;
 
         this.items = items;
@@ -65,26 +67,34 @@ public class PagedDoubleChestMenu implements Listener {
 
         pageMap = new HashMap<Integer, Inventory>();
 
+        if(items.size() == 0) {return;}
+
         if(items.size() <= 54) {
 
             Inventory inventory = plugin.getServer().createInventory(null, 54, name);
 
             if(inventory == null) {return;}
 
-            for(int i = 0; i < items.size(); i++) {
+            int invCounter = 0;
 
-                inventory.setItem(i, items.get(i));
+            int parseCounter = 0;
+
+            if(items.size() == 1) {
+
+                inventory.setItem(0, items.get(0));
+            }
+
+            while(items.size() > 1 && invCounter <= 53 && parseCounter < items.size()) {
+
+                inventory.setItem(invCounter, items.get(parseCounter));
+
+                invCounter++;
+                parseCounter++;
             }
 
             if(pageMap.size() == 0) {
 
                 pageMap.put(0, inventory);
-                return;
-            }
-
-            if(pageMap.size() > 0) {
-
-                pageMap.put(pageMap.size() + 1, inventory);
                 return;
             }
         }
@@ -96,6 +106,8 @@ public class PagedDoubleChestMenu implements Listener {
             int invCounter = 0;
 
             int parseCounter = 0;
+
+            int pageCounter = 0;
 
             Inventory currentInventory = null;
 
@@ -118,7 +130,6 @@ public class PagedDoubleChestMenu implements Listener {
 
                     invCounter++;
                     parseCounter++;
-                    continue;
                 }
 
                 if(invCounter == 52) {
@@ -131,32 +142,29 @@ public class PagedDoubleChestMenu implements Listener {
 
                         currentInventory.setItem(invCounter, nextPage);
                         invCounter++;
-                        continue;
                     }
 
                     if(pageMap.size() > 0) {
 
                         currentInventory.setItem(invCounter, nextPage);
                         invCounter++;
-                        continue;
                     }
                 }
 
                 if(invCounter == 54) {
 
-                    if(pageMap.size() == 0) {
+                    pageMap.put(pageCounter, currentInventory);
+                    currentInventory = null;
+                    invCounter = 0;
+                    pageCounter++;
+                }
 
-                        pageMap.put(0, currentInventory);
-                        currentInventory = null;
-                        invCounter = 0;
-                        continue;
-                    } else {
+                if(parseCounter + 1 == items.size()) {
 
-                        pageMap.put(pageMap.size() + 1, currentInventory);
-                        currentInventory = null;
-                        invCounter = 0;
-                        continue;
-                    }
+                    pageMap.put(pageCounter, currentInventory);
+                    currentInventory = null;
+                    invCounter = 0;
+                    pageCounter++;
                 }
             }
         }
@@ -238,6 +246,7 @@ public class PagedDoubleChestMenu implements Listener {
 
         currentPage++;
 
+        player.closeInventory();
         openInventory();
     }
 
@@ -255,6 +264,7 @@ public class PagedDoubleChestMenu implements Listener {
 
         currentPage--;
 
+        player.closeInventory();
         openInventory();
     }
 
