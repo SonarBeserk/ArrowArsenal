@@ -74,22 +74,8 @@ public class Language {
 
         if (plugin.getConfig().getString("settings.language") == null || plugin.getConfig().getString("settings.language").equalsIgnoreCase("")) {
 
-            plugin.getLogger().warning("Invalid Language Specified! Falling back on english.");
-
-            InputStream defConfigStream = plugin.getResource("lang" + "/" + "en.yml");
-
-            if(defConfigStream != null) {
-
-                YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
-                locale = defConfig;
-            } else {
-
-                plugin.getLogger().severe("Unable to load english defaults! Disabling!");
-                plugin.getServer().getPluginManager().disablePlugin(plugin);
-                return;
-            }
-
-            return;
+            plugin.getLogger().warning("Invalid Language Specified! Disabling.");
+            plugin.getServer().getPluginManager().disablePlugin(plugin);
         }
 
         if (localeFile == null) {
