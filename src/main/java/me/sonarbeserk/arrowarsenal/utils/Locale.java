@@ -74,8 +74,21 @@ public class Locale {
 
         if (plugin.getConfig().getString("settings.locale") == null || plugin.getConfig().getString("settings.locale").equalsIgnoreCase("")) {
 
-            plugin.getLogger().severe("Invalid Locale Specified! Disabling.");
-            plugin.getServer().getPluginManager().disablePlugin(plugin);
+            plugin.getLogger().warning("Invalid Locale Specified! Falling back on english.");
+
+            InputStream defConfigStream = plugin.getResource("locale" + "/" + "en.yml");
+
+            if(defConfigStream != null) {
+
+                YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
+                locale = defConfig;
+            } else {
+
+                plugin.getLogger().severe("Unable to load english defaults! Disabling!");
+                plugin.getServer().getPluginManager().disablePlugin(plugin);
+                return;
+            }
+
             return;
         }
 
