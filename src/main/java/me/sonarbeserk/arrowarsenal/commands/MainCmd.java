@@ -33,11 +33,11 @@ public class MainCmd implements CommandExecutor {
 
             if(sender instanceof Player) {
 
-                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             } else {
 
-                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             }
         }
@@ -48,11 +48,11 @@ public class MainCmd implements CommandExecutor {
 
                 if(sender instanceof Player) {
 
-                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                     return true;
                 } else {
 
-                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                     return true;
                 }
             }
@@ -63,25 +63,25 @@ public class MainCmd implements CommandExecutor {
 
                     if(sender instanceof Player) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("no-permission"));
                         return true;
                     } else {
 
-                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("no-permission"));
                         return true;
                     }
                 }
 
-                plugin.getLocale().reload();
+                plugin.getLanguage().reload();
                 plugin.reloadConfig();
 
                 if(sender instanceof Player) {
 
-                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("reloaded"));
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("reloaded"));
                     return true;
                 } else {
 
-                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("reloaded"));
+                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("reloaded"));
                     return true;
                 }
             }
@@ -92,11 +92,11 @@ public class MainCmd implements CommandExecutor {
 
                     if(sender instanceof Player) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-none-loaded"));
                         return true;
                     } else {
 
-                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-none-loaded"));
+                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-none-loaded"));
                         return true;
                     }
                 }
@@ -111,22 +111,22 @@ public class MainCmd implements CommandExecutor {
                         
                         if(arrow.canBuy()) {
 
-                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + "").replace("{cost}", arrow.getCost() + ""));
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + "").replace("{cost}", arrow.getCost() + ""));
                             continue;
                         } else {
 
-                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-list-no-buy").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-list-no-buy").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             continue;
                         }
                     } else {
 
                         if(arrow.canBuy()) {
 
-                            plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + "").replace("{cost}", arrow.getCost() + ""));
+                            plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-list").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + "").replace("{cost}", arrow.getCost() + ""));
                             continue;
                         } else {
 
-                            plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-list-no-buy").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                            plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-list-no-buy").replace("{id}", id + "").replace("{displayname}", arrow.getDisplayName()).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             continue;
                         }
                     }
@@ -141,11 +141,11 @@ public class MainCmd implements CommandExecutor {
 
                     if(sender instanceof Player) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                         return true;
                     } else {
 
-                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                         return true;
                     }
                 }
@@ -160,15 +160,15 @@ public class MainCmd implements CommandExecutor {
 
                             if(arrow.canBuy()) {
 
-                                plugin.getMessaging().sendMessage(sender, false,  true, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                                plugin.getMessaging().sendMessage(sender, false,  true, plugin.getLanguage().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             } else {
 
-                                plugin.getMessaging().sendMessage(sender, false,  true, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                                plugin.getMessaging().sendMessage(sender, false,  true, plugin.getLanguage().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             }
 
                             if(arrow.getMainPermission() == null) {continue;}
 
-                            plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info-main-permission").replace("{mainpermission}", arrow.getMainPermission()));
+                            plugin.getMessaging().sendMessage(sender, false, true, plugin.getLanguage().getMessage("arrow-info-main-permission").replace("{mainpermission}", arrow.getMainPermission()));
 
                             if(arrow.getExtraPermissions() == null || arrow.getExtraPermissions().size() == 0) {continue;}
 
@@ -176,7 +176,7 @@ public class MainCmd implements CommandExecutor {
 
                                 if(arrow.getExtraPermissions().get(node) == null) {continue;}
 
-                                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getExtraPermissions().get(node)));
+                                plugin.getMessaging().sendMessage(sender, false, true, plugin.getLanguage().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getExtraPermissions().get(node)));
                                 continue;
                             }
 
@@ -185,15 +185,15 @@ public class MainCmd implements CommandExecutor {
 
                             if(arrow.canBuy()) {
 
-                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLanguage().getMessage("arrow-info").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{cost}", arrow.getCost() + "").replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             } else {
 
-                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLocale().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
+                                plugin.getMessaging().sendMessage(sender, false,  false, plugin.getLanguage().getMessage("arrow-info-no-buy").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", (arrow.getAuthors() + "").replace("[", "").replace("]", "")).replace("{enabled}", ArrowRegistry.getInstance().isEnabled(arrow.getInternalName()) + ""));
                             }
 
                             if(arrow.getMainPermission() == null) {continue;}
 
-                            plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-info-main-permission").replace("{mainpermission}", arrow.getMainPermission()));
+                            plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-info-main-permission").replace("{mainpermission}", arrow.getMainPermission()));
 
                             if(arrow.getExtraPermissions() == null || arrow.getExtraPermissions().size() == 0) {continue;}
                             
@@ -201,7 +201,7 @@ public class MainCmd implements CommandExecutor {
 
                                 if(arrow.getExtraPermissions().get(node) == null) {continue;}
 
-                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getExtraPermissions().get(node)));
+                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-info-permission").replace("{permission}", node).replace("{description}", arrow.getExtraPermissions().get(node)));
                                 continue;
                             }
 
@@ -212,11 +212,11 @@ public class MainCmd implements CommandExecutor {
 
                 if(sender instanceof Player) {
 
-                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-not-found"));
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-not-found"));
                     return true;
                 } else {
 
-                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-not-found"));
+                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-not-found"));
                     return true;
                 }
             }
@@ -227,11 +227,11 @@ public class MainCmd implements CommandExecutor {
 
                     if(sender instanceof Player) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("no-permission"));
                         return true;
                     } else {
 
-                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("no-permission"));
                         return true;
                     }
                 }
@@ -252,11 +252,11 @@ public class MainCmd implements CommandExecutor {
 
                                 if(sender instanceof Player) {
 
-                                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-disabled").replace("{displayname}", arrow.getDisplayName()));
+                                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-disabled").replace("{displayname}", arrow.getDisplayName()));
                                     return true;
                                 } else {
 
-                                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-disabled").replace("{displayname}", arrow.getDisplayName()));
+                                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-disabled").replace("{displayname}", arrow.getDisplayName()));
                                     return true;
                                 }
                             }
@@ -265,11 +265,11 @@ public class MainCmd implements CommandExecutor {
 
                             if(sender instanceof Player) {
 
-                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-disable").replace("{displayname}", arrow.getDisplayName()));
+                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-disable").replace("{displayname}", arrow.getDisplayName()));
                                 continue;
                             } else {
 
-                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-disable").replace("{displayname}", arrow.getDisplayName()));
+                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-disable").replace("{displayname}", arrow.getDisplayName()));
                                 continue;
                             }
                         }
@@ -291,11 +291,11 @@ public class MainCmd implements CommandExecutor {
 
                     if(sender instanceof Player) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("no-permission"));
                         return true;
                     } else {
 
-                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("no-permission"));
                         return true;
                     }
                 }
@@ -316,11 +316,11 @@ public class MainCmd implements CommandExecutor {
 
                                 if(sender instanceof Player) {
 
-                                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-enabled").replace("{displayname}", arrow.getDisplayName()));
+                                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-enabled").replace("{displayname}", arrow.getDisplayName()));
                                     return true;
                                 } else {
 
-                                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-enabled").replace("{displayname}", arrow.getDisplayName()));
+                                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-enabled").replace("{displayname}", arrow.getDisplayName()));
                                     return true;
                                 }
                             }
@@ -329,11 +329,11 @@ public class MainCmd implements CommandExecutor {
 
                             if(sender instanceof Player) {
 
-                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-enable").replace("{displayname}", arrow.getDisplayName()));
+                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-enable").replace("{displayname}", arrow.getDisplayName()));
                                 continue;
                             } else {
 
-                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("arrow-enable").replace("{displayname}", arrow.getDisplayName()));
+                                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("arrow-enable").replace("{displayname}", arrow.getDisplayName()));
                                 continue;
                             }
                         }
@@ -355,24 +355,24 @@ public class MainCmd implements CommandExecutor {
 
                     if(sender instanceof Player) {
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("no-permission"));
                         return true;
                     } else {
 
-                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("no-permission"));
+                        plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("no-permission"));
                         return true;
                     }
                 }
 
                 if(!(sender instanceof Player)) {
 
-                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("command-player-required"));
+                    plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("command-player-required"));
                     return true;
                 }
 
                 if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
 
-                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-none-loaded"));
                     return true;
                 }
 
@@ -436,7 +436,7 @@ public class MainCmd implements CommandExecutor {
 
                         if(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()) == null) {
 
-                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-selected"));
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-none-selected"));
                             return true;
                         }
 
@@ -444,12 +444,12 @@ public class MainCmd implements CommandExecutor {
 
                             if(ArrowRegistry.getInstance().getArrowsMap().get(id).getInternalName().equalsIgnoreCase(PlayerTracker.getInstance().getCurrentArrowName(sender.getName()))) {
 
-                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
+                                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
                                 return true;
                             }
                         }
 
-                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-found"));
+                        plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-none-found"));
                         return true;
                     }
 
@@ -457,7 +457,7 @@ public class MainCmd implements CommandExecutor {
 
                         if(ArrowRegistry.getInstance().getArrowsMap().size() == 0) {
 
-                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-loaded"));
+                            plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-none-loaded"));
                             return true;
                         }
 
@@ -472,25 +472,25 @@ public class MainCmd implements CommandExecutor {
                                 if(!ArrowRegistry.getInstance().getDisabledArrowNames().contains(arrow.getInternalName())) {
 
                                     PlayerTracker.getInstance().setCurrentArrow(sender.getName(), ArrowRegistry.getInstance().getArrowsMap().get(id));
-                                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
+                                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-current").replace("{displayname}", ArrowRegistry.getInstance().getArrowsMap().get(id).getDisplayName()));
                                     return true;
                                 }
                             }
                         }
                     }
 
-                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("arrow-none-found"));
+                    plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("arrow-none-found"));
                     return true;
                 }
             }
 
             if(sender instanceof Player) {
 
-                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, true, true, plugin.getLanguage().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             } else {
 
-                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLocale().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
+                plugin.getMessaging().sendMessage(sender, false, false, plugin.getLanguage().getMessage("usage-arrowarsenal").replace("{name}", plugin.getDescription().getName()));
                 return true;
             }
         }

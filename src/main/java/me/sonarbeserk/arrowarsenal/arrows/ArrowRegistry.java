@@ -112,12 +112,12 @@ public class ArrowRegistry {
 
         if(arrow.getDisplayName() == null) {
 
-            plugin.getLogger().severe(plugin.getLocale().getMessage("severe-no-displayname").replace("{class}", arrow.getClass().getName()));
+            plugin.getLogger().severe(plugin.getLanguage().getMessage("severe-no-displayname").replace("{class}", arrow.getClass().getName()));
             return;
 
         } else if(arrow.getInternalName() == null) {
 
-            plugin.getLogger().severe(plugin.getLocale().getMessage("severe-no-internalname").replace("{class}", arrow.getClass().getName()));
+            plugin.getLogger().severe(plugin.getLanguage().getMessage("severe-no-internalname").replace("{class}", arrow.getClass().getName()));
             return;
         }
 
@@ -125,14 +125,14 @@ public class ArrowRegistry {
 
             arrows.put(1, arrow);
 
-            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", arrow.getAuthors() + ""));
+            plugin.getMessaging().debug(plugin.getLanguage().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", arrow.getAuthors() + ""));
 
             return;
         }
 
         arrows.put(arrows.size() + 1, arrow);
 
-        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", arrow.getAuthors() + ""));
+        plugin.getMessaging().debug(plugin.getLanguage().getMessage("debug-arrow-added").replace("{displayname}", arrow.getDisplayName()).replace("{internalname}", arrow.getInternalName()).replace("{description}", arrow.getDescription() + "").replace("{authors}", arrow.getAuthors() + ""));
 
         return;
     }
@@ -164,7 +164,7 @@ public class ArrowRegistry {
 
             arrows.remove(id);
 
-            plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-removed").replace("{class}", arrows.getClass().getName()));
+            plugin.getMessaging().debug(plugin.getLanguage().getMessage("debug-arrow-removed").replace("{class}", arrows.getClass().getName()));
             continue;
         }
     }
@@ -183,7 +183,7 @@ public class ArrowRegistry {
 
         getArrow(internalName).onDisable();
 
-        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-disabled").replace("{class}", arrows.getClass().getName()));
+        plugin.getMessaging().debug(plugin.getLanguage().getMessage("debug-arrow-disabled").replace("{class}", arrows.getClass().getName()));
     }
 
     /**
@@ -200,7 +200,7 @@ public class ArrowRegistry {
 
         getArrow(internalName).onEnable();
 
-        plugin.getMessaging().debug(plugin.getLocale().getMessage("debug-arrow-enabled").replace("{class}", arrows.getClass().getName()));
+        plugin.getMessaging().debug(plugin.getLanguage().getMessage("debug-arrow-enabled").replace("{class}", arrows.getClass().getName()));
     }
 
     /**

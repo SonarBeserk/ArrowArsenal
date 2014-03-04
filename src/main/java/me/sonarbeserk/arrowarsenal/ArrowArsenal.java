@@ -5,9 +5,9 @@ import me.sonarbeserk.arrowarsenal.commands.MainCmd;
 import me.sonarbeserk.arrowarsenal.listeners.ArrowListener;
 import me.sonarbeserk.arrowarsenal.listeners.FileVersionListener;
 import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
+import me.sonarbeserk.arrowarsenal.utils.Language;
 import me.sonarbeserk.arrowarsenal.utils.Messaging;
 import me.sonarbeserk.arrowarsenal.utils.Data;
-import me.sonarbeserk.arrowarsenal.utils.Locale;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -17,7 +17,7 @@ public class ArrowArsenal extends JavaPlugin {
 
     public static Economy economy = null;
 
-    private Locale locale = null;
+    private Language language = null;
 
     private Data data = null;
 
@@ -31,7 +31,7 @@ public class ArrowArsenal extends JavaPlugin {
 
         saveDefaultConfig();
 
-        locale = new Locale(this);
+        language = new Language(this);
 
         if(!getServer().getPluginManager().isPluginEnabled(this)) {return;}
 
@@ -55,14 +55,14 @@ public class ArrowArsenal extends JavaPlugin {
 
             if(economy == null) {
 
-                getLogger().warning(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', getLocale().getMessage("warning-no-economy-found"))));
+                getLogger().warning(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', getLanguage().getMessage("warning-no-economy-found"))));
             } else {
 
-                getLogger().info(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', getLocale().getMessage("hooked-vault"))));
+                getLogger().info(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', getLanguage().getMessage("hooked-vault"))));
             }
         } else {
 
-            getLogger().warning(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', getLocale().getMessage("warning-vault-not-found"))));
+            getLogger().warning(ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', getLanguage().getMessage("warning-vault-not-found"))));
         }
     }
 
@@ -78,12 +78,12 @@ public class ArrowArsenal extends JavaPlugin {
     }
 
     /**
-     * Returns the locale in use
-     * @return the locale in use
+     * Returns the language in use
+     * @return the language in use
      */
-    public Locale getLocale() {
+    public Language getLanguage() {
 
-        return locale;
+        return language;
     }
 
     /**
@@ -117,6 +117,6 @@ public class ArrowArsenal extends JavaPlugin {
 
         messaging = null;
 
-        locale = null;
+        language = null;
     }
 }

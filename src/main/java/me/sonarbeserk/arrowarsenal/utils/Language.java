@@ -8,17 +8,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 
-public class Locale {
+public class Language {
 
     private JavaPlugin plugin = null;
 
     private FileConfiguration locale = null;
     private File localeFile = null;
 
-    public Locale(JavaPlugin plugin) {
+    public Language(JavaPlugin plugin) {
 
         //lang directory check/create if not found
-        new File(plugin.getDataFolder(), "locale").mkdir();
+        new File(plugin.getDataFolder(), "lang").mkdir();
 
         this.plugin = plugin;
 
@@ -36,13 +36,13 @@ public class Locale {
 
         if (localeFile == null) {
 
-            localeFile = new File(plugin.getDataFolder() + "/" + "locale", plugin.getConfig().getString("settings.locale") + ".yml");
+            localeFile = new File(plugin.getDataFolder() + "/" + "lang", plugin.getConfig().getString("settings.language") + ".yml");
         }
 
         locale = YamlConfiguration.loadConfiguration(localeFile);
 
         // Look for defaults in the jar
-        InputStream defConfigStream = plugin.getResource("locale" + "/" + plugin.getConfig().getString("settings.locale") + ".yml");
+        InputStream defConfigStream = plugin.getResource("lang" + "/" + plugin.getConfig().getString("settings.language") + ".yml");
 
         if (defConfigStream != null) {
 
@@ -50,7 +50,7 @@ public class Locale {
             locale.setDefaults(defConfig);
         } else {
 
-            plugin.getLogger().severe("Unsupported locale file in use. No defaults able to be loaded.");
+            plugin.getLogger().severe("Unsupported language file in use. No defaults able to be loaded.");
             return;
         }
     }
@@ -72,11 +72,11 @@ public class Locale {
             plugin.reloadConfig();
         }
 
-        if (plugin.getConfig().getString("settings.locale") == null || plugin.getConfig().getString("settings.locale").equalsIgnoreCase("")) {
+        if (plugin.getConfig().getString("settings.language") == null || plugin.getConfig().getString("settings.language").equalsIgnoreCase("")) {
 
-            plugin.getLogger().warning("Invalid Locale Specified! Falling back on english.");
+            plugin.getLogger().warning("Invalid Language Specified! Falling back on english.");
 
-            InputStream defConfigStream = plugin.getResource("locale" + "/" + "en.yml");
+            InputStream defConfigStream = plugin.getResource("lang" + "/" + "en.yml");
 
             if(defConfigStream != null) {
 
@@ -94,12 +94,12 @@ public class Locale {
 
         if (localeFile == null) {
 
-            localeFile = new File(plugin.getDataFolder() + "/" + "locale" + "/" + plugin.getConfig().getString("settings.locale") + ".yml");
+            localeFile = new File(plugin.getDataFolder() + "/" + "lang" + "/" + plugin.getConfig().getString("settings.language") + ".yml");
         }
 
         if (!localeFile.exists()) {
 
-            plugin.saveResource("locale" + "/" + plugin.getConfig().getString("settings.locale") + ".yml", false);
+            plugin.saveResource("lang" + "/" + plugin.getConfig().getString("settings.language") + ".yml", false);
         }
     }
 
@@ -112,7 +112,7 @@ public class Locale {
             getFileConfiguration().save(localeFile);
         } catch (IOException ex) {
 
-            plugin.getLogger().log(Level.SEVERE, "Could not save config to " + localeFile, ex);
+            plugin.getLogger().log(Level.SEVERE, "Could not save language file to " + localeFile, ex);
         }
     }
 

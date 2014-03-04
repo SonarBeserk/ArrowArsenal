@@ -41,7 +41,7 @@ public class ArrowSelectListener extends ClickListener {
 
                     PlayerTracker.getInstance().setCurrentArrow(e.getWhoClicked().getName(), arrow);
 
-                    plugin.getMessaging().sendMessage(e.getWhoClicked().getName(), true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", arrow.getDisplayName()));
+                    plugin.getMessaging().sendMessage(e.getWhoClicked().getName(), true, true, plugin.getLanguage().getMessage("arrow-current").replace("{displayname}", arrow.getDisplayName()));
                 }
             }
         }
@@ -73,7 +73,7 @@ public class ArrowSelectListener extends ClickListener {
 
                         PlayerTracker.getInstance().setCurrentArrow(e.getWhoClicked().getName(), arrow);
 
-                        plugin.getMessaging().sendMessage(e.getWhoClicked().getName(), true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", arrow.getDisplayName()));
+                        plugin.getMessaging().sendMessage(e.getWhoClicked().getName(), true, true, plugin.getLanguage().getMessage("arrow-current").replace("{displayname}", arrow.getDisplayName()));
                     }
                 }
             }
@@ -113,7 +113,7 @@ public class ArrowSelectListener extends ClickListener {
 
                         PlayerTracker.getInstance().setCurrentArrow(e.getWhoClicked().getName(), arrow);
 
-                        plugin.getMessaging().sendMessage(e.getWhoClicked().getName(), true, true, plugin.getLocale().getMessage("arrow-current").replace("{displayname}", arrow.getDisplayName()));
+                        plugin.getMessaging().sendMessage(e.getWhoClicked().getName(), true, true, plugin.getLanguage().getMessage("arrow-current").replace("{displayname}", arrow.getDisplayName()));
                     }
                 }
             }

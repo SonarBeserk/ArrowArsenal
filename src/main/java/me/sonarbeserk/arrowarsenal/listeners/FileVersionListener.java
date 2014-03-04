@@ -36,19 +36,19 @@ public class FileVersionListener implements Listener {
             configOutOfDate = true;
         }
 
-        if(Double.parseDouble((String) latestVersionsFile.get("locale")) > Double.parseDouble(plugin.getLocale().getMessage("version"))) {
+        if(Double.parseDouble((String) latestVersionsFile.get("locale")) > Double.parseDouble(plugin.getLanguage().getMessage("version"))) {
 
             localeOutOfDate = true;
         }
 
         if(configOutOfDate) {
 
-            plugin.getMessaging().sendMessage(plugin.getServer().getConsoleSender(), false, false, plugin.getLocale().getMessage("out-of-date-config"));
+            plugin.getMessaging().sendMessage(plugin.getServer().getConsoleSender(), false, false, plugin.getLanguage().getMessage("out-of-date-config"));
         }
 
         if(localeOutOfDate) {
 
-            plugin.getMessaging().sendMessage(plugin.getServer().getConsoleSender(), false, false, plugin.getLocale().getMessage("out-of-date-locale"));
+            plugin.getMessaging().sendMessage(plugin.getServer().getConsoleSender(), false, false, plugin.getLanguage().getMessage("out-of-date-locale"));
         }
 
         for(Player player: plugin.getServer().getOnlinePlayers()) {
@@ -57,12 +57,12 @@ public class FileVersionListener implements Listener {
 
                 if(configOutOfDate) {
 
-                    plugin.getMessaging().sendMessage(player, true, true, plugin.getLocale().getMessage("out-of-date-config"));
+                    plugin.getMessaging().sendMessage(player, true, true, plugin.getLanguage().getMessage("out-of-date-config"));
                 }
 
                 if(localeOutOfDate) {
 
-                    plugin.getMessaging().sendMessage(player, true, true, plugin.getLocale().getMessage("out-of-date-locale"));
+                    plugin.getMessaging().sendMessage(player, true, true, plugin.getLanguage().getMessage("out-of-date-locale"));
                 }
 
                 continue;

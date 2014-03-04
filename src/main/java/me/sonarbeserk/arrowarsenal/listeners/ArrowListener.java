@@ -47,7 +47,7 @@ public class ArrowListener implements Listener {
 
         if(!shooter.hasPermission(sArrow.getMainPermission()) && !arrow.hasMetadata("warned")) {
 
-            plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("no-permission"));
+            plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLanguage().getMessage("no-permission"));
             arrow.setMetadata("warned", new FixedMetadataValue(plugin, "true"));
             return;
         }
@@ -64,7 +64,7 @@ public class ArrowListener implements Listener {
 
                 if(!ArrowArsenal.economy.has(shooter.getName(), sArrow.getCost())) {
 
-                    plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("arrow-can-not-afford"));
+                    plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLanguage().getMessage("arrow-can-not-afford"));
                     return;
                 }
 
@@ -99,7 +99,7 @@ public class ArrowListener implements Listener {
 
         if(!shooter.hasPermission(sArrow.getMainPermission()) && !arrow.hasMetadata("warned")) {
 
-            plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("no-permission"));
+            plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLanguage().getMessage("no-permission"));
             arrow.setMetadata("warned", new FixedMetadataValue(plugin, "true"));
             return;
         }
@@ -116,7 +116,7 @@ public class ArrowListener implements Listener {
 
                 if(!ArrowArsenal.economy.has(shooter.getName(), sArrow.getCost())) {
 
-                    plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("arrow-can-not-afford"));
+                    plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLanguage().getMessage("arrow-can-not-afford"));
                     return;
                 }
 
@@ -153,7 +153,7 @@ public class ArrowListener implements Listener {
 
         if(!shooter.hasPermission(sArrow.getMainPermission()) && !arrow.hasMetadata("warned")) {
 
-            plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("no-permission"));
+            plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLanguage().getMessage("no-permission"));
             arrow.setMetadata("warned", new FixedMetadataValue(plugin, "true"));
             return;
         }
@@ -170,7 +170,7 @@ public class ArrowListener implements Listener {
 
                 if(!ArrowArsenal.economy.has(shooter.getName(), sArrow.getCost())) {
 
-                    plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLocale().getMessage("arrow-can-not-afford"));
+                    plugin.getMessaging().sendMessage(shooter, true, true, plugin.getLanguage().getMessage("arrow-can-not-afford"));
                     return;
                 }
 
