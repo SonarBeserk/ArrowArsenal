@@ -233,7 +233,7 @@ public class PagedDoubleChestMenu implements Listener {
     }
 
     /**
-     * Changes to the next page in the inventory. Open the inventory again to show the new page
+     * Changes to the next page in the inventory.
      */
     public void nextPage() {
 
@@ -251,7 +251,7 @@ public class PagedDoubleChestMenu implements Listener {
     }
 
     /**
-     * Changes to the previous page in the inventory. Open the inventory again to show the new page
+     * Changes to the previous page in the inventory.
      */
     public void prevPage() {
 
