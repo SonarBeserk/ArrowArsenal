@@ -1,4 +1,4 @@
-package me.sonarbeserk.arrowarsenal.utils;
+package me.sonarbeserk.utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -8,11 +8,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /***********************************************************************************************************************
  *
- * ArrowArsenal - Bukkit plugin to provide a system to organize special arrows
+ * BeserkUtils - Premade classes for use in my bukkit plugins
  * ===========================================================================
  *
- * Copyright (C) 2013, 2014 by SonarBeserk
- * http://dev.bukkit.org/bukkit-plugins/arrowarsenal/
+ * Copyright (C) 2014 by SonarBeserk
+ * https://github.com/SonarBeserk/BeserkUtils
  *
  ***********************************************************************************************************************
  *

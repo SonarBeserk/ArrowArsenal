@@ -1,20 +1,22 @@
-package me.sonarbeserk.arrowarsenal.listeners;
+package me.sonarbeserk.listeners;
 
 import me.sonarbeserk.arrowarsenal.ArrowArsenal;
-import me.sonarbeserk.arrowarsenal.utils.LatestVersionsFile;
+import me.sonarbeserk.utils.LatestVersionsFile;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.event.server.PluginEnableEvent;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /***********************************************************************************************************************
  *
- * ArrowArsenal - Bukkit plugin to provide a system to organize special arrows
+ * BeserkUtils - Premade classes for use in my bukkit plugins
  * ===========================================================================
  *
- * Copyright (C) 2013, 2014 by SonarBeserk
- * http://dev.bukkit.org/bukkit-plugins/arrowarsenal/
+ * Copyright (C) 2014 by SonarBeserk
+ * https://github.com/SonarBeserk/BeserkUtils
  *
  ***********************************************************************************************************************
  *

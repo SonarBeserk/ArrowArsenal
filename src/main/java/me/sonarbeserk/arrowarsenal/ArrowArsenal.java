@@ -1,13 +1,13 @@
 package me.sonarbeserk.arrowarsenal;
 
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
-import me.sonarbeserk.arrowarsenal.commands.MainCmd;
+import me.sonarbeserk.commands.MainCmd;
 import me.sonarbeserk.arrowarsenal.listeners.ArrowListener;
-import me.sonarbeserk.arrowarsenal.listeners.FileVersionListener;
 import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
-import me.sonarbeserk.arrowarsenal.utils.Language;
-import me.sonarbeserk.arrowarsenal.utils.Messaging;
-import me.sonarbeserk.arrowarsenal.utils.Data;
+import me.sonarbeserk.listeners.FileVersionListener;
+import me.sonarbeserk.utils.Data;
+import me.sonarbeserk.utils.Language;
+import me.sonarbeserk.utils.Messaging;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.RegisteredServiceProvider;

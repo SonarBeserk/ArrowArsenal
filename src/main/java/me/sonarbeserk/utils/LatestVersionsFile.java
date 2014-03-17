@@ -1,22 +1,19 @@
-package me.sonarbeserk.arrowarsenal.utils;
+package me.sonarbeserk.utils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
-import java.util.logging.Level;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import java.io.File;
+import java.io.InputStream;
 
 /***********************************************************************************************************************
  *
- * ArrowArsenal - Bukkit plugin to provide a system to organize special arrows
+ * BeserkUtils - Premade classes for use in my bukkit plugins
  * ===========================================================================
  *
- * Copyright (C) 2013, 2014 by SonarBeserk
- * http://dev.bukkit.org/bukkit-plugins/arrowarsenal/
+ * Copyright (C) 2014 by SonarBeserk
+ * https://github.com/SonarBeserk/BeserkUtils
  *
  ***********************************************************************************************************************
  *
@@ -34,105 +31,102 @@ import org.bukkit.plugin.java.JavaPlugin;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  ***********************************************************************************************************************/
-public class Data {
+public class LatestVersionsFile {
 
     private JavaPlugin plugin = null;
 
-	private FileConfiguration data = null;
-	private File dataFile = null;
-	
-	public Data(JavaPlugin plugin) {
+	private FileConfiguration versions = null;
+	private File versionsFile = null;
+
+	public LatestVersionsFile(JavaPlugin plugin) {
 		
 		this.plugin = plugin;
-
-		saveDefault();
 	}
 
     /**
      * Reloads the data file
      */
 	public void reload() {
-
-        saveDefault();
-
-		if(dataFile == null) {
-			
-			dataFile = new File(plugin.getDataFolder(), "data.yml");
-		}
 		
-		data = YamlConfiguration.loadConfiguration(dataFile);
-		
-		InputStream defConfigStream = plugin.getResource("data.yml");
+		InputStream defConfigStream = plugin.getResource("latest-versions.yml");
 		
 		if(defConfigStream != null) {
 			
 			YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
-			data.setDefaults(defConfig);
+			versions = defConfig;
 		} else {
 			
-			plugin.getLogger().severe("Unable to load data.");
+			plugin.getLogger().severe("Unable to load version data.");
 			return;
 		}
 	}
 	
 	private FileConfiguration getFileConfiguration() {
 		
-		if(data == null) {
+		if(versions == null) {
 			
 			reload();
 		}
 		
-		return data;
+		return versions;
 	}
 
     /**
      * Saves the default version of the data file if it was not found
      */
-	private void saveDefault() {
+	/*
+    private void saveDefault() {
 		
-		if(dataFile == null) {
+		if(versionsFile == null) {
 			
-			dataFile = new File(plugin.getDataFolder() + "/" + "data.yml");
+			versionsFile = new File(plugin.getDataFolder() + "/" + "latest-versions.yml");
 		}
 		
 		if(!dataFile.exists()) {
 			
-			plugin.saveResource("data.yml", false);
+			plugin.saveResource("latest-versions.yml", false);
 			return;
 		}
 	}
+	*/
 
     /**
-     * Saves the current state of the data file, also destroys any comments in the file
+     * Saves the current state of the versions file, also destroys any comments in the file
      */
-	public void save() {
+
+    /*
+    public void save() {
 		
-		if((data == null)||(dataFile == null)) {return;}
+		if((versions == null)||(versionsFile == null)) {return;}
 		
 		try {
 			
-			getFileConfiguration().save(dataFile);
+			getFileConfiguration().save(versionsFile);
 		} catch (IOException ex) {
 			
-			plugin.getLogger().log(Level.SEVERE, "Could not save config to " + dataFile, ex);
+			plugin.getLogger().log(Level.SEVERE, "Could not save config to " + versionsFile, ex);
 		}
 	}
+	*/
 
     /**
      * Sets the value at the path specified
      * @param path the path to set at
      * @param value the value to set
      */
+    /*
     public void set(String path, Object value) {
 
-        data.set(path, value);
+        versions.set(path, value);
     }
+    */
 
     /**
-     * Returns a data entry from the path specified
+     * Returns a version entry from the path specified
      * @param path the path to the entry
-     * @return a data entry from the path specified
+     * @return a version entry from the path specified
      */
+
     public Object get(String path) {
 
         return getFileConfiguration().get(path);
@@ -153,8 +147,10 @@ public class Data {
      * @param path the path to create the section at
      * @param map the value to set
      */
+    /*
     public void createSection(String path, Map<?, ?> map) {
 
         getFileConfiguration().createSection(path, map);
     }
+    */
 }
