@@ -1,7 +1,7 @@
 package me.sonarbeserk.arrowarsenal;
 
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
-import me.sonarbeserk.commands.MainCmd;
+import me.sonarbeserk.arrowarsenal.commands.MainCmd;
 import me.sonarbeserk.arrowarsenal.listeners.ArrowListener;
 import me.sonarbeserk.arrowarsenal.tracking.PlayerTracker;
 import me.sonarbeserk.listeners.FileVersionListener;

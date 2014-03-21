@@ -1,4 +1,4 @@
-package me.sonarbeserk.commands;
+package me.sonarbeserk.arrowarsenal.commands;
 
 import me.sonarbeserk.arrowarsenal.ArrowArsenal;
 import me.sonarbeserk.arrowarsenal.arrows.ArrowRegistry;
